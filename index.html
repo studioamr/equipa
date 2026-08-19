@@ -3,384 +3,509 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CANTO — Mobiliario contract, directo de fábrica</title>
-<meta name="description" content="Sillas, mesas y bancos para restaurantes, cafeterías y oficinas. Importación directa desde fábrica. México.">
+<title>Mesas y Sillas Para Restaurante | Importación Directa – CANTO</title>
+<meta name="description" content="Mobiliario contract para restaurantes, cafeterías, bares y oficinas. Sillas, mesas, bancos de barra y sillones a precio de importación directa. México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --papel:#F4F1EA;
-  --papel-2:#ECE8DF;
-  --tinta:#1C1A16;
-  --grafito:#6E695F;
-  --linea:#D9D3C6;
-  --oxido:#C14E24;
-  --serif:"Fraunces",Georgia,serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --negro:#121212;
+  --gris:#6f6f6f;
+  --linea:#e8e8e8;
+  --amarillo:#f8c84a;
+  --oliva:#6b7350;
+  --oliva-2:#5c6344;
+  --venta:#cf5c3f;
+  --badge:#b8562e;
+  --wa:#35b658;
+  --sans:"Montserrat",system-ui,sans-serif;
+  --logo:"Archivo",system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--papel);color:var(--tinta);font-family:var(--serif);font-weight:300;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--negro);background:#fff;font-size:15px;line-height:1.55}
 a{color:inherit;text-decoration:none}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafito)}
-.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
-@media(max-width:720px){.wrap{padding:0 22px}}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--oliva);outline-offset:2px}
 
-/* ---------- NAV ---------- */
-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--papel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
-.nav-in{display:flex;align-items:baseline;justify-content:space-between;padding:18px 40px;max-width:1240px;margin:0 auto}
-.logo{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.26em}
-.logo span{color:var(--oxido)}
-.nav-links{display:flex;gap:34px}
-.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafito);transition:color .2s}
-.nav-links a:hover,.nav-links a:focus-visible{color:var(--oxido)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--oxido);outline-offset:3px}
-@media(max-width:720px){.nav-links{display:none}.nav-in{padding:16px 22px}}
+/* ── Barra superior negra ── */
+.topbar{background:#111;color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.02em;text-align:center;padding:9px 44px;position:relative}
+.topbar b{font-weight:700}
+.topbar .tb-arrow{position:absolute;top:0;bottom:0;width:36px;color:#bbb;font-size:15px}
+.tb-arrow.prev{left:6px}.tb-arrow.next{right:6px}
 
-/* ---------- HERO ---------- */
-.hero{min-height:calc(100vh - 60px);display:grid;grid-template-columns:6fr 6fr;align-items:center;gap:40px;padding-top:40px;padding-bottom:60px}
-@media(max-width:920px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:60px}}
-.hero .kicker{display:flex;gap:14px;align-items:center;margin-bottom:26px}
-.kicker-rule{width:44px;height:1px;background:var(--oxido)}
-h1{font-size:clamp(42px,5.6vw,76px);line-height:1.02;font-weight:400;letter-spacing:-.01em}
-h1 em{font-style:italic;font-weight:300;color:var(--oxido)}
-.hero p.lead{margin-top:28px;max-width:46ch;font-size:18px;color:var(--grafito)}
-.cta-row{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
-.btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--tinta);transition:all .25s}
-.btn.primary{background:var(--tinta);color:var(--papel)}
-.btn.primary:hover{background:var(--oxido);border-color:var(--oxido)}
-.btn.ghost:hover{border-color:var(--oxido);color:var(--oxido)}
+/* ── Header ── */
+header.site{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--linea)}
+.head-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1240px;margin:0 auto;padding:14px 20px}
+.burger{justify-self:start;width:40px;height:40px;display:grid;place-items:center}
+.burger span{display:block;width:22px;height:2px;background:var(--negro);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--negro)}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.logo{justify-self:center;text-align:center;font-family:var(--logo);font-weight:900;font-size:26px;letter-spacing:.08em;line-height:1}
+.logo small{display:block;font-weight:600;font-size:9.5px;letter-spacing:.42em;margin-top:3px;color:var(--negro)}
+.logo em{font-style:normal;color:var(--badge)}
+.head-icons{justify-self:end;display:flex;gap:6px}
+.head-icons button{width:40px;height:40px;display:grid;place-items:center;position:relative}
+.head-icons svg{width:21px;height:21px;stroke:var(--negro);fill:none;stroke-width:1.7}
+.cart-count{position:absolute;top:2px;right:0;background:var(--badge);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 4px}
 
-/* technical drawing */
-.plano{position:relative}
-.plano svg{width:100%;height:auto;display:block}
-.trazo{fill:none;stroke:var(--tinta);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.hero .trazo{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,0,.2,1) forwards}
-.hero .trazo:nth-child(2){animation-delay:.15s}
-.hero .trazo:nth-child(3){animation-delay:.3s}
-.hero .trazo:nth-child(4){animation-delay:.45s}
-.hero .trazo:nth-child(5){animation-delay:.6s}
-@keyframes draw{to{stroke-dashoffset:0}}
-.cota{stroke:var(--grafito);stroke-width:1;fill:none;opacity:0;animation:aparecer .8s ease 1.7s forwards}
-.cota-txt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--grafito);opacity:0;animation:aparecer .8s ease 1.9s forwards}
-.piso{stroke:var(--linea);stroke-width:1.4}
-@keyframes aparecer{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){
-  .hero .trazo{animation:none;stroke-dashoffset:0}
-  .cota,.cota-txt{animation:none;opacity:1}
-  .reveal{transition:none!important;opacity:1!important;transform:none!important}
-}
+/* ── Banner amarillo ── */
+.promo{background:var(--amarillo);text-align:center;padding:20px 20px 22px}
+.promo h2{font-size:clamp(19px,2.6vw,27px);font-weight:700;letter-spacing:-.01em}
+.promo p{font-size:14.5px;margin-top:6px}
+.promo a{text-decoration:underline;font-weight:600}
 
-/* ---------- SECCIONES ---------- */
-section{padding:110px 0}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--tinta);padding-bottom:18px;margin-bottom:0}
-h2{font-size:clamp(30px,3.4vw,48px);font-weight:400;letter-spacing:-.01em}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
+/* ── Hero slider ── */
+.hero{position:relative;overflow:hidden;background:#222}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s}
+.slide.on{opacity:1;position:relative}
+.slide img{width:100%;height:min(62vh,560px);object-fit:cover;filter:brightness(.72)}
+.slide-txt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:20px}
+.slide-txt h2{font-size:clamp(28px,4.5vw,44px);font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.slide-txt p{font-size:clamp(14px,1.8vw,18px);margin-top:6px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.slide-btns{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.btn-oliva{display:inline-block;background:var(--oliva);color:#fff;font-size:14px;font-weight:500;padding:12px 26px;transition:background .2s}
+.btn-oliva:hover{background:var(--oliva-2)}
+.dots{position:absolute;bottom:14px;left:0;right:0;display:flex;gap:8px;justify-content:center}
+.dots button{width:9px;height:9px;border-radius:50%;background:#ffffff77}
+.dots button.on{background:#fff}
 
-/* colecciones */
-.col-row{display:grid;grid-template-columns:70px 1fr 1fr 220px;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--linea);transition:background .3s,color .3s;position:relative}
-.col-row::before{content:"";position:absolute;left:-40px;top:0;bottom:0;width:3px;background:var(--oxido);transform:scaleY(0);transition:transform .3s}
-.col-row:hover::before{transform:scaleY(1)}
-.col-row:hover{background:var(--papel-2)}
-.col-num{font-family:var(--mono);font-size:12px;color:var(--oxido)}
-.col-name{font-size:clamp(22px,2.4vw,32px);font-weight:400}
-.col-name .mono{display:block;margin-top:8px}
-.col-desc{font-size:15px;color:var(--grafito);max-width:38ch}
-.col-fig img{width:100%;max-width:210px;aspect-ratio:4/5;object-fit:cover;display:block;margin-left:auto;filter:saturate(.92) contrast(1.03) sepia(.06)}
-@media(max-width:920px){.col-fig img{max-width:120px}}
-@media(max-width:920px){.col-row{grid-template-columns:40px 1fr 120px}.col-desc{display:none}}
+/* ── Secciones de catálogo ── */
+section.cat{padding:52px 0 8px}
+section.cat h2{text-align:center;font-size:clamp(20px,2.6vw,26px);font-weight:700;margin-bottom:34px}
+.carrusel{position:relative;max-width:1240px;margin:0 auto;padding:0 56px}
+.pista{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+.pista::-webkit-scrollbar{display:none}
+@media(max-width:900px){.pista{grid-auto-columns:calc((100% - 24px)/2)}}
+@media(max-width:560px){.carrusel{padding:0 20px}.pista{grid-auto-columns:86%}}
+.flecha{position:absolute;top:180px;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid #d6d6d6;display:grid;place-items:center;font-size:17px;color:#333;z-index:5;transition:box-shadow .2s}
+.flecha:hover{box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.flecha.prev{left:4px}.flecha.next{right:4px}
+@media(max-width:560px){.flecha{display:none}}
 
-/* modelo */
-.modelo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;margin-top:70px}
-@media(max-width:920px){.modelo-grid{grid-template-columns:1fr;gap:44px}}
-.paso .mono{color:var(--oxido)}
-.paso h3{font-size:24px;font-weight:400;margin:14px 0 12px}
-.paso p{font-size:15.5px;color:var(--grafito)}
-.claim{margin-top:100px;font-size:clamp(28px,3.6vw,52px);font-weight:300;line-height:1.15;max-width:20ch}
-.claim strong{font-weight:500;color:var(--oxido)}
+.card{scroll-snap-align:start;text-align:center;cursor:pointer;position:relative}
+.card .foto{position:relative;background:#f6f6f6;aspect-ratio:1;overflow:hidden;margin-bottom:14px}
+.card .foto img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.card:hover .foto img{transform:scale(1.04)}
+.badge{position:absolute;top:10px;left:10px;background:var(--badge);color:#fff;font-size:11.5px;font-weight:500;padding:4px 9px;z-index:2}
+.card .marca{font-size:13px;color:var(--gris);letter-spacing:.03em}
+.card .nombre{font-size:15.5px;font-weight:500;margin-top:3px}
+.card .precios{margin-top:6px;font-size:15px}
+.precio-v{color:var(--venta);font-weight:600}
+.precio-o{color:#9a9a9a;text-decoration:line-through;margin-left:8px;font-size:14px}
+.colores{display:flex;gap:7px;justify-content:center;margin-top:10px}
+.colores i{width:13px;height:13px;border-radius:50%;border:1px solid #00000022}
+.vertodo{display:block;width:max-content;margin:34px auto 0;background:var(--oliva);color:#fff;font-size:14.5px;padding:13px 32px;transition:background .2s}
+.vertodo:hover{background:var(--oliva-2)}
 
-.compromisos{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--tinta)}
-.compromisos .mono{padding:20px 24px 4px 0;border-right:1px solid var(--linea);color:var(--tinta)}
-.compromisos .mono:last-child{border-right:none}
-@media(max-width:920px){.compromisos{grid-template-columns:1fr 1fr;row-gap:18px}}
+/* ── Franja confianza ── */
+.franja{background:#f7f7f5;margin-top:56px;padding:38px 20px}
+.fr-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+@media(max-width:800px){.fr-grid{grid-template-columns:1fr 1fr}}
+.fr-grid h3{font-size:14.5px;font-weight:700;margin-bottom:4px}
+.fr-grid p{font-size:13px;color:var(--gris)}
 
-.banda{margin:0}
-.banda img{width:100%;height:min(64vh,560px);object-fit:cover;display:block;filter:saturate(.92) contrast(1.03) sepia(.06)}
-.banda figcaption{display:block;max-width:1240px;margin:14px auto 0;padding:0 40px 40px}
+/* ── Modal producto ── */
+.velo{position:fixed;inset:0;background:#0007;z-index:90;display:none}
+.velo.on{display:block}
+.modal{position:fixed;z-index:100;inset:auto;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;width:min(920px,94vw);max-height:90vh;overflow:auto;display:none}
+.modal.on{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.modal.on{grid-template-columns:1fr}}
+.modal .m-foto{background:#f6f6f6;min-height:320px}
+.modal .m-foto img{width:100%;height:100%;object-fit:cover}
+.m-info{padding:34px 32px 38px;position:relative}
+.m-cerrar{position:absolute;top:10px;right:12px;font-size:26px;color:#888;width:38px;height:38px}
+.m-info .marca{color:var(--gris);font-size:13px}
+.m-info h3{font-size:23px;font-weight:700;margin:4px 0 10px}
+.m-specs{list-style:none;margin:18px 0;border-top:1px solid var(--linea)}
+.m-specs li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--linea);font-size:13.5px}
+.m-specs li span:first-child{color:var(--gris)}
+.m-nota{font-size:12.5px;color:var(--gris);background:#faf7ef;border:1px solid #eee3c6;padding:10px 12px;margin-bottom:18px}
+.m-acciones{display:grid;gap:10px}
+.btn-negro{background:var(--negro);color:#fff;font-size:14px;font-weight:500;padding:14px;text-align:center;transition:opacity .2s}
+.btn-negro:hover{opacity:.85}
+.btn-wa{background:var(--wa);color:#fff;font-size:14px;font-weight:600;padding:14px;text-align:center;display:flex;gap:8px;justify-content:center;align-items:center}
+.btn-wa:hover{filter:brightness(.94)}
 
-/* proyectos (dark) */
-.proyectos{background:var(--tinta);color:var(--papel)}
-.proyectos .mono{color:#A39C8E}
-.proyectos h2{max-width:16ch}
-.pack{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:end}
-@media(max-width:920px){.pack{grid-template-columns:1fr}}
-.pack-list{list-style:none;border-top:1px solid #3A362F}
-.pack-list li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #3A362F;font-size:17px}
-.pack-list .qty{font-family:var(--mono);font-size:13px;color:var(--oxido)}
-.pack p{color:#B8B1A2;font-size:16px;max-width:44ch}
-.proyectos .btn{border-color:var(--papel);color:var(--papel);margin-top:34px}
-.proyectos .btn:hover{background:var(--oxido);border-color:var(--oxido)}
+/* ── Carrito drawer ── */
+.drawer{position:fixed;top:0;right:-420px;width:min(400px,92vw);height:100%;background:#fff;z-index:110;transition:right .3s;display:flex;flex-direction:column;box-shadow:-6px 0 30px rgba(0,0,0,.12)}
+.drawer.on{right:0}
+.d-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--linea);font-weight:700}
+.d-items{flex:1;overflow:auto;padding:10px 20px}
+.d-item{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--linea)}
+.d-item img{width:64px;height:64px;object-fit:cover;background:#f6f6f6}
+.d-item .n{font-size:13.5px;font-weight:600}
+.d-item .p{font-size:13px;color:var(--venta);font-weight:600}
+.d-qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.d-qty button{width:24px;height:24px;border:1px solid #ccc;font-size:14px;line-height:1}
+.d-quitar{font-size:11.5px;color:#999;text-decoration:underline}
+.d-foot{padding:16px 20px;border-top:1px solid var(--linea)}
+.d-total{display:flex;justify-content:space-between;font-weight:700;margin-bottom:6px}
+.d-nota{font-size:12px;color:var(--gris);margin-bottom:12px}
+.d-vacio{text-align:center;color:var(--gris);padding:60px 20px;font-size:14px}
 
-/* ruta */
-.ruta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;border-left:1px solid var(--linea)}
-@media(max-width:920px){.ruta-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.ruta-grid{grid-template-columns:1fr}}
-.hito{padding:0 28px 10px;border-right:1px solid var(--linea)}
-.hito .fecha{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--oxido)}
-.hito h3{font-size:19px;font-weight:500;margin:12px 0 8px}
-.hito p{font-size:14.5px;color:var(--grafito)}
-.hito.activo .fecha::after{content:" ●";font-size:9px}
-.ruta-nota{margin-top:60px;font-size:15px;color:var(--grafito);max-width:62ch;font-style:italic}
+/* ── Menú drawer ── */
+.menu{position:fixed;top:0;left:-360px;width:min(340px,88vw);height:100%;background:#fff;z-index:110;transition:left .3s;overflow:auto;box-shadow:6px 0 30px rgba(0,0,0,.12)}
+.menu.on{left:0}
+.menu .d-head{font-family:var(--logo);font-weight:900;letter-spacing:.08em}
+.menu nav a{display:block;padding:14px 20px;border-bottom:1px solid var(--linea);font-size:14.5px;font-weight:500}
+.menu nav a:hover{background:#f7f7f5}
+.menu nav .grupo{padding:16px 20px 6px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);font-weight:700}
 
-/* contacto */
-.contacto{padding-bottom:140px}
-.contacto h2{font-size:clamp(38px,5vw,68px);max-width:14ch;line-height:1.05}
-.contacto .lead{margin-top:24px;color:var(--grafito);max-width:44ch}
-.canales{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
-.canal-nota{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--grafito);border:1px dashed var(--linea);padding:16px 24px}
+/* ── Búsqueda ── */
+.busca{position:fixed;top:0;left:0;right:0;background:#fff;z-index:120;padding:22px 20px;box-shadow:0 8px 30px rgba(0,0,0,.12);display:none}
+.busca.on{display:block}
+.busca .b-in{max-width:760px;margin:0 auto;display:flex;gap:10px}
+.busca input{flex:1;border:1px solid #ccc;padding:12px 16px;font-size:15px;font-family:var(--sans)}
+.b-res{max-width:760px;margin:14px auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-height:50vh;overflow:auto}
 
-footer{border-top:1px solid var(--linea);padding:30px 0 44px}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* ── WhatsApp flotante ── */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:80;background:var(--wa);color:#fff;font-size:14.5px;font-weight:600;padding:13px 22px 13px 16px;border-radius:28px;display:flex;gap:9px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.wa-float svg{width:22px;height:22px;fill:#fff}
+
+/* ── Footer ── */
+footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px solid var(--linea)}
+.f-grid{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:44px}
+@media(max-width:800px){.f-grid{grid-template-columns:1fr}}
+.f-grid h3{font-size:15px;font-weight:700;margin-bottom:14px}
+.f-grid p,.f-grid a{font-size:13.5px;color:#444;line-height:1.8}
+.f-grid nav a{display:block}
+.f-grid nav a:hover{text-decoration:underline}
+.news{display:flex;margin-top:10px;max-width:340px}
+.news input{flex:1;border:1px solid #bbb;border-right:none;padding:11px 14px;font-size:13.5px;font-family:var(--sans);background:#fff}
+.news button{background:var(--negro);color:#fff;padding:0 20px;font-size:13.5px}
+.copy{text-align:center;font-size:12.5px;color:var(--gris);padding:26px 20px;margin-top:40px;border-top:1px solid var(--linea)}
 </style>
 </head>
 <body>
 
-<nav aria-label="principal">
-  <div class="nav-in">
-    <a class="logo" href="#">CANT<span>O</span></a>
-    <div class="nav-links">
-      <a href="#colecciones">Colecciones</a>
-      <a href="#modelo">El modelo</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#ruta">La ruta</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </div>
-</nav>
+<div class="topbar" id="topbar">
+  <button class="tb-arrow prev" aria-label="anterior" onclick="tbMove(-1)">‹</button>
+  <span id="tb-txt"><b>ATENCIÓN WHATSAPP:</b> por abrir · Catálogo 01</span>
+  <button class="tb-arrow next" aria-label="siguiente" onclick="tbMove(1)">›</button>
+</div>
 
-<header class="wrap hero">
-  <div>
-    <div class="kicker">
-      <span class="kicker-rule"></span>
-      <span class="mono">Importación directa · Cap. 94</span>
-    </div>
-    <h1>Mobiliario contract, <em>directo de fábrica.</em></h1>
-    <p class="lead">Sillas, mesas y bancos para restaurantes, cafeterías, bares y oficinas. Los curamos en la fábrica, los traemos por contenedor y los entregamos en tu local — sin showroom y sin intermediarios de por medio.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="#contacto">Cotizar un proyecto</a>
-      <a class="btn ghost" href="#colecciones">Ver colecciones</a>
+<header class="site">
+  <div class="head-in">
+    <button class="burger" aria-label="menú" onclick="abrir('menu')"><span></span></button>
+    <a class="logo" href="#">CANT<em>O</em><small>MOBILIARIO CONTRACT</small></a>
+    <div class="head-icons">
+      <button aria-label="buscar" onclick="abrir('busca')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button>
+      <button aria-label="cotización" onclick="abrir('drawer')">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
     </div>
   </div>
-  <figure class="plano" aria-label="Plano técnico de silla contract, altura total 810 mm, altura de asiento 460 mm">
-    <svg viewBox="0 0 420 540" role="img">
-      <line class="piso" x1="30" y1="490" x2="390" y2="490"/>
-      <path class="trazo" pathLength="1" d="M238 52 Q 226 180 224 306"/>
-      <path class="trazo" pathLength="1" d="M224 306 L 98 306"/>
-      <path class="trazo" pathLength="1" d="M104 306 L 88 488"/>
-      <path class="trazo" pathLength="1" d="M224 306 L 246 488"/>
-      <path class="trazo" pathLength="1" d="M238 52 q -8 -12 -20 -6"/>
-      <g class="cota">
-        <line x1="316" y1="52" x2="316" y2="488"/>
-        <line x1="308" y1="52" x2="324" y2="52"/>
-        <line x1="308" y1="488" x2="324" y2="488"/>
-      </g>
-      <text class="cota-txt" x="330" y="274">810</text>
-      <g class="cota">
-        <line x1="52" y1="306" x2="52" y2="488"/>
-        <line x1="44" y1="306" x2="60" y2="306"/>
-        <line x1="44" y1="488" x2="60" y2="488"/>
-      </g>
-      <text class="cota-txt" x="18" y="402">460</text>
-      <text class="cota-txt" x="150" y="524">SILLA 01 · ACERO / FRESNO</text>
-    </svg>
-  </figure>
 </header>
 
-<main>
+<div class="promo">
+  <h2>¡Envío a todo México — Precio de Importación Directa!</h2>
+  <p>Aguascalientes · CDMX · Colima · Edo. de México · Guanajuato · Jalisco · Michoacán · Nuevo León · Puebla · Querétaro · SLP · Sinaloa. <a href="#sillas">Ver colección.</a></p>
+</div>
 
-<section id="colecciones" class="wrap">
-  <div class="sec-head reveal">
-    <h2>Colecciones</h2>
-    <span class="mono">Catálogo 01 · Dic 2026</span>
-  </div>
-
-  <a class="col-row reveal" href="#contacto">
-    <span class="col-num">01</span>
-    <span class="col-name">Sillas<span class="mono">Partida 9401 · Comedor y terraza</span></span>
-    <span class="col-desc">Apilables de acero, respaldo curvo, madera de fresno. Para servicio rudo, todos los días.</span>
-    <span class="col-fig"><img src="img/sillas.jpg" alt="Sillas de madera junto a ventana en cafetería" loading="lazy"></span>
-  </a>
-
-  <a class="col-row reveal" href="#contacto">
-    <span class="col-num">02</span>
-    <span class="col-name">Bancos de barra<span class="mono">Partida 9401 · H 650 / 750</span></span>
-    <span class="col-desc">Dos alturas, asiento de madera o tapizado, estribo de acero. La barra es el corazón del local.</span>
-    <span class="col-fig"><img src="img/bancos.jpg" alt="Bancos de barra de madera con patas metálicas" loading="lazy"></span>
-  </a>
-
-  <a class="col-row reveal" href="#contacto">
-    <span class="col-num">03</span>
-    <span class="col-name">Mesas<span class="mono">Partida 9403 · Bases y cubiertas</span></span>
-    <span class="col-desc">Bases de hierro, cubiertas de madera o compacto. Redondas, cuadradas y de barra.</span>
-    <span class="col-fig"><img src="img/mesas.jpg" alt="Mesa de madera con sillas en restaurante" loading="lazy"></span>
-  </a>
-
-  <a class="col-row reveal" href="#contacto">
-    <span class="col-num">04</span>
-    <span class="col-name">Lounge<span class="mono">Partida 9401 · Espera y sala</span></span>
-    <span class="col-desc">Sillones y bancas para lobby, espera y esquinas lentas. Tapicería que aguanta uso comercial.</span>
-    <span class="col-fig"><img src="img/lounge.jpg" alt="Sillón lounge tapizado claro" loading="lazy"></span>
-  </a>
-
-  <p class="ruta-nota reveal">Fotos de referencia del tipo de línea en curación. El catálogo 01 se cierra en la fábrica, no en el render — cada pieza se elige, se prueba y se negocia en persona.</p>
-</section>
-
-<section id="modelo" class="wrap">
-  <div class="sec-head reveal">
-    <h2>El modelo</h2>
-    <span class="mono">Fábrica → contenedor → tu local</span>
-  </div>
-  <div class="modelo-grid">
-    <div class="paso reveal">
-      <span class="mono">01 · Curación</span>
-      <h3>Elegimos en la fábrica</h3>
-      <p>Foshan y Guangzhou concentran a los fabricantes de mobiliario comercial del mundo. Ahí seleccionamos, probamos calidad y negociamos precio de origen.</p>
-    </div>
-    <div class="paso reveal">
-      <span class="mono">02 · Contenedor</span>
-      <h3>Importación propia</h3>
-      <p>Consolidamos por contenedor con inspección de calidad antes de embarcar. Puerto de Manzanillo, agente aduanal, todo en regla y con factura.</p>
-    </div>
-    <div class="paso reveal">
-      <span class="mono">03 · Entrega</span>
-      <h3>Directo a tu local</h3>
-      <p>Del puerto a tu restaurante, cafetería u oficina. Sin pasar por showroom, bodega de distribuidor ni margen de terceros.</p>
+<div class="hero" id="hero">
+  <div class="slide on">
+    <img src="img/ambiente.jpg" alt="Cafetería amueblada con mobiliario contract">
+    <div class="slide-txt">
+      <h2>Lanzamientos 2027</h2>
+      <p>Catálogo 01 · Preventa del primer contenedor</p>
+      <div class="slide-btns"><a class="btn-oliva" href="#sillas">Sillas</a><a class="btn-oliva" href="#bancos">Bancos de barra</a></div>
     </div>
   </div>
-  <p class="claim reveal">El mismo mueble que ves en el showroom, <strong>sin el precio del showroom.</strong></p>
-  <div class="compromisos reveal">
-    <span class="mono">Precio público, sin cotización a ciegas</span>
-    <span class="mono">Factura CFDI en cada pedido</span>
-    <span class="mono">Garantía escrita · 2 años en estructura</span>
-    <span class="mono">Fecha de entrega comprometida</span>
-  </div>
-</section>
-
-<figure class="banda reveal">
-  <img src="img/ambiente.jpg" alt="Interior de cafetería moderna amueblada con mesas y sillas" loading="lazy">
-  <figcaption class="mono">Proyecto tipo · Cafetería 20 plazas — el look que amueblamos</figcaption>
-</figure>
-
-<section id="proyectos" class="proyectos">
-  <div class="wrap">
-    <div class="sec-head reveal" style="border-color:#3A362F">
-      <h2>¿Abres un local?</h2>
-      <span class="mono">Proyectos completos</span>
-    </div>
-    <div class="pack">
-      <div class="reveal">
-        <p>Amueblar un restaurante no debería ser perseguir a cinco proveedores. Nos das el plano y el concepto; regresamos con una sola cotización, un solo embarque y una sola entrega.</p>
-        <a class="btn" href="#contacto">Cotizar mi local</a>
-      </div>
-      <ul class="pack-list reveal" aria-label="Ejemplo de proyecto tipo">
-        <li><span>Sillas de comedor</span><span class="qty">× 40</span></li>
-        <li><span>Mesas base + cubierta</span><span class="qty">× 12</span></li>
-        <li><span>Bancos de barra</span><span class="qty">× 8</span></li>
-        <li><span>Lounge / espera</span><span class="qty">× 2</span></li>
-        <li><span>Cotización y entrega</span><span class="qty">× 1</span></li>
-      </ul>
+  <div class="slide">
+    <img src="img/sillas.jpg" alt="Sillas de ratán en cafetería de especialidad">
+    <div class="slide-txt">
+      <h2>Amuebla tu local completo</h2>
+      <p>Una cotización, un embarque, una entrega</p>
+      <div class="slide-btns"><a class="btn-oliva" href="#proyecto">Cotizar proyecto</a></div>
     </div>
   </div>
-</section>
+  <div class="dots" id="dots"></div>
+</div>
 
-<section id="ruta" class="wrap">
-  <div class="sec-head reveal">
-    <h2>La ruta</h2>
-    <span class="mono">Bitácora real, sin humo</span>
-  </div>
-  <div class="ruta-grid">
-    <div class="hito activo reveal">
-      <span class="fecha">AGO 2026</span>
-      <h3>Marca y preventa</h3>
-      <p>Nace CANTO. Abrimos lista de proyectos para el primer contenedor.</p>
-    </div>
-    <div class="hito reveal">
-      <span class="fecha">OCT 2026</span>
-      <h3>Foshan · Cantón</h3>
-      <p>Fábricas en Foshan y Longjiang, y Canton Fair (23–27 oct). El catálogo se decide ahí.</p>
-    </div>
-    <div class="hito reveal">
-      <span class="fecha">NOV 2026</span>
-      <h3>Producción</h3>
-      <p>Pedido en firme, inspección de calidad y embarque en puerto.</p>
-    </div>
-    <div class="hito reveal">
-      <span class="fecha">ENE 2027</span>
-      <h3>Primer contenedor</h3>
-      <p>Llegada a México y entrega de los primeros proyectos.</p>
-    </div>
-  </div>
-  <p class="ruta-nota reveal">Esta página crece con el viaje: fotos de fábrica, muestras reales y precios cerrados conforme sucedan — no antes.</p>
-</section>
+<main id="catalogo"></main>
 
-<section id="contacto" class="wrap contacto">
-  <div class="kicker reveal">
-    <span class="kicker-rule"></span>
-    <span class="mono">Contacto</span>
+<div class="franja" id="proyecto">
+  <div class="fr-grid">
+    <div><h3>Precio público</h3><p>Sin cotización a ciegas: lo que ves es el precio.</p></div>
+    <div><h3>Factura CFDI</h3><p>En cada pedido, deducible para tu negocio.</p></div>
+    <div><h3>Garantía escrita</h3><p>2 años en estructura, uso comercial.</p></div>
+    <div><h3>Proyectos completos</h3><p>Amueblamos tu local en una sola entrega.</p></div>
   </div>
-  <h2 class="reveal">Hablemos de tu local.</h2>
-  <p class="lead reveal">Cuéntanos qué vas a abrir — o qué vas a renovar — y te apartamos lugar en el primer contenedor.</p>
-  <div class="canales reveal" id="canales"></div>
-</section>
+</div>
 
-</main>
-
-<footer>
-  <div class="wrap foot">
-    <span class="mono">CANTO · Mobiliario contract</span>
-    <span class="mono">Morelia, México · 2026</span>
+<!-- Modal producto -->
+<div class="velo" id="velo" onclick="cerrarTodo()"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="m-foto"><img id="m-img" src="" alt=""></div>
+  <div class="m-info">
+    <button class="m-cerrar" aria-label="cerrar" onclick="cerrarTodo()">×</button>
+    <div class="marca" id="m-marca"></div>
+    <h3 id="m-nombre"></h3>
+    <div class="precios"><span class="precio-v" id="m-precio"></span><span class="precio-o" id="m-viejo"></span></div>
+    <div class="colores" id="m-colores" style="justify-content:flex-start"></div>
+    <ul class="m-specs" id="m-specs"></ul>
+    <div class="m-nota">Preventa Catálogo 01 · se aparta con 30% · entrega estimada enero 2027 con factura y garantía escrita.</div>
+    <div class="m-acciones">
+      <button class="btn-negro" id="m-agregar">Agregar a cotización</button>
+      <button class="btn-wa" id="m-wa">Cotizar por WhatsApp</button>
+    </div>
   </div>
+</div>
+
+<!-- Carrito -->
+<aside class="drawer" id="drawer" aria-label="cotización">
+  <div class="d-head"><span>Mi cotización</span><button onclick="cerrarTodo()" aria-label="cerrar" style="font-size:22px">×</button></div>
+  <div class="d-items" id="d-items"></div>
+  <div class="d-foot">
+    <div class="d-total"><span>Total estimado</span><span id="d-total">$ 0.00</span></div>
+    <div class="d-nota">Precios de preventa + IVA · entrega estimada enero 2027 · flete según ciudad.</div>
+    <button class="btn-wa" style="width:100%" onclick="enviarCotizacion()">Enviar cotización por WhatsApp</button>
+  </div>
+</aside>
+
+<!-- Menú -->
+<aside class="menu" id="menu" aria-label="menú">
+  <div class="d-head"><span>CANT<em style="font-style:normal;color:var(--badge)">O</em></span><button onclick="cerrarTodo()" aria-label="cerrar" style="font-size:22px">×</button></div>
+  <nav>
+    <div class="grupo">Muebles</div>
+    <a href="#sillas" onclick="cerrarTodo()">Sillas de Comedor y Exterior</a>
+    <a href="#bancos" onclick="cerrarTodo()">Bancos de Barra</a>
+    <a href="#mesas" onclick="cerrarTodo()">Mesas para Restaurante</a>
+    <a href="#sillones" onclick="cerrarTodo()">Sillones y Lounge</a>
+    <a href="#oficina" onclick="cerrarTodo()">Oficina y Visita</a>
+    <div class="grupo">CANTO</div>
+    <a href="#proyecto" onclick="cerrarTodo()">Amuebla tu local</a>
+    <a href="concepto.html">Concepto de marca</a>
+    <a href="#contacto" onclick="cerrarTodo()">Contacto</a>
+  </nav>
+</aside>
+
+<!-- Búsqueda -->
+<div class="busca" id="busca">
+  <div class="b-in">
+    <input id="b-input" placeholder="Busca: silla, banco, mesa, sillón…" oninput="buscar(this.value)">
+    <button class="btn-negro" onclick="cerrarTodo()" style="padding:0 18px">Cerrar</button>
+  </div>
+  <div class="b-res" id="b-res"></div>
+</div>
+
+<a class="wa-float" id="wa-float" href="#" aria-label="Contacto WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.8 2.1 1 .3.2.5.3.6.4.1.2.1.7-.1 1.4z"/></svg>
+  Contacto Whatsapp
+</a>
+
+<footer class="site" id="contacto">
+  <div class="f-grid">
+    <div>
+      <h3>Contacto</h3>
+      <p>Morelia, Michoacán — atendemos proyectos en todo México.</p>
+      <p>Atención a clientes: Lunes a Sábado de 9 a 20 horas.</p>
+      <p id="f-canal">WhatsApp y correo: por abrir junto con el Catálogo 01.</p>
+    </div>
+    <div>
+      <h3>Info</h3>
+      <nav>
+        <a href="#sillas">Catálogo</a>
+        <a href="#proyecto">Amuebla tu local</a>
+        <a href="concepto.html">Concepto CANTO</a>
+        <a href="#">Aviso de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+      </nav>
+    </div>
+    <div>
+      <h3>Newsletter</h3>
+      <p>Suscríbete y entérate cuando llegue el primer contenedor y las mejores promociones.</p>
+      <div class="news"><input id="news-mail" type="email" placeholder="Correo electrónico"><button onclick="news()">Unirse</button></div>
+    </div>
+  </div>
+  <div class="copy">Derechos de Autor © 2026 CANTO · Mobiliario Contract · Importación directa</div>
 </footer>
 
 <script>
-// ── CONFIG · canales (vacío a propósito: llenar cuando estén listos) ──
-const CONFIG = {
-  whatsapp: "",   // ej. "5214431234567" (con 521)
-  email: "",      // ej. "hola@canto.mx"
-  ciudad: "Morelia, México"
-};
+// ── CONFIG · llenar cuando estén los canales (formato 521XXXXXXXXXX) ──
+const CONFIG = { whatsapp: "", email: "" };
 
-const canales = document.getElementById("canales");
-if (CONFIG.whatsapp) {
-  const wa = document.createElement("a");
-  wa.className = "btn primary";
-  wa.textContent = "WhatsApp";
-  wa.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" +
-    encodeURIComponent("Hola, quiero cotizar mobiliario para mi local.");
-  wa.target = "_blank"; wa.rel = "noopener";
-  canales.appendChild(wa);
-}
-if (CONFIG.email) {
-  const em = document.createElement("a");
-  em.className = "btn ghost";
-  em.textContent = "Escríbenos";
-  em.href = "mailto:" + CONFIG.email;
-  canales.appendChild(em);
-}
-if (!CONFIG.whatsapp && !CONFIG.email) {
-  const nota = document.createElement("span");
-  nota.className = "canal-nota";
-  nota.textContent = "Canales en apertura · Catálogo 01 — Dic 2026";
-  canales.appendChild(nota);
+// ── CATÁLOGO ──
+const $ = s => document.querySelector(s);
+const money = n => "$ " + n.toLocaleString("es-MX", {minimumFractionDigits:2});
+const P = [
+ // sillas
+ {id:"CNT-101", cat:"sillas", marca:"Contract", n:"Silla Marfil CNT-101", p:1290, o:1590, img:"img/p/silla-marfil.jpg", col:["#e9e4da","#b9b3a5","#3a3a3a"], specs:{Material:"Tapiz alto tráfico / acero", Altura:"81 cm · asiento 46 cm", Uso:"Interior comercial", "MOQ proyecto":"10 pzas"}},
+ {id:"CNT-102", cat:"sillas", marca:"Contract", n:"Silla Roble CNT-102", p:1090, o:1290, img:"img/p/silla-roble.jpg", col:["#a8763e","#5d4326"], specs:{Material:"Madera sólida", Altura:"84 cm · asiento 45 cm", Uso:"Interior comercial", "MOQ proyecto":"10 pzas"}},
+ {id:"CNT-103", cat:"sillas", marca:"Componentes", n:"Silla Nube CNT-103", p:890, o:1090, img:"img/p/silla-nube.jpg", col:["#2b2b2b","#e8e8e8"], specs:{Material:"Polipropileno reforzado", Altura:"80 cm · apilable", Uso:"Interior / exterior", "MOQ proyecto":"20 pzas"}},
+ {id:"CNT-104", cat:"sillas", marca:"Contract", n:"Silla Prado CNT-104", p:1490, o:1790, img:"img/p/silla-prado.jpg", col:["#7d8c5c","#3a3a3a","#b9b3a5"], specs:{Material:"Tapiz / base cromada", Altura:"79 cm · asiento 46 cm", Uso:"Interior comercial", "MOQ proyecto":"10 pzas"}},
+ {id:"CNT-105", cat:"sillas", marca:"Contract", n:"Silla Vega CNT-105", p:1690, o:1990, img:"img/p/silla-vega.jpg", col:["#a8763e"], specs:{Material:"Madera + asiento tapizado", Altura:"83 cm · asiento 46 cm", Uso:"Restaurante / cafetería", "MOQ proyecto":"10 pzas"}},
+ {id:"CNT-106", cat:"sillas", marca:"Contract", n:"Silla Terra CNT-106", p:1990, o:2490, img:"img/p/silla-terra.jpg", col:["#b03a2e","#1f6f5c","#2b2b2b"], specs:{Material:"Terciopelo / patas doradas", Altura:"85 cm · asiento 47 cm", Uso:"Restaurante / lounge", "MOQ proyecto":"6 pzas"}},
+ // bancos
+ {id:"CNT-201", cat:"bancos", marca:"Contract", n:"Banco Norte Alto CNT-201", p:1190, o:1390, img:"img/p/banco-norte.jpg", col:["#2b2b2b","#e8e8e8"], specs:{Material:"Acero powder coat", Altura:"75 cm (barra)", Uso:"Barra / cocina", "MOQ proyecto":"6 pzas"}},
+ {id:"CNT-202", cat:"bancos", marca:"Contract", n:"Banco Ámbar CNT-202", p:1290, o:1590, img:"img/p/banco-ambar.jpg", col:["#d9a514","#2b2b2b","#b03a2e"], specs:{Material:"Metal / asiento PU", Altura:"75 cm (barra)", Uso:"Barra / bar", "MOQ proyecto":"6 pzas"}},
+ {id:"CNT-203", cat:"bancos", marca:"Contract", n:"Banco Cuero CNT-203", p:1890, o:2290, img:"img/p/banco-cuero.jpg", col:["#6b4a2f","#2b2b2b"], specs:{Material:"Piel sintética / acero", Altura:"65 cm (cocina)", Uso:"Barra / isla", "MOQ proyecto":"6 pzas"}},
+ {id:"CNT-204", cat:"bancos", marca:"Componentes", n:"Banco Faro CNT-204", p:1090, o:1290, img:"img/p/banco-faro.jpg", col:["#b03a2e","#d9a514","#2b2b2b"], specs:{Material:"Metal powder coat", Altura:"65 / 75 cm", Uso:"Interior / exterior", "MOQ proyecto":"8 pzas"}},
+ {id:"CNT-205", cat:"bancos", marca:"Contract", n:"Banco Eje CNT-205", p:1490, o:1690, img:"img/p/banco-eje.jpg", col:["#2b2b2b"], specs:{Material:"Acero / asiento giratorio", Altura:"75 cm (barra)", Uso:"Barra", "MOQ proyecto":"6 pzas"}},
+ // mesas
+ {id:"CNT-301", cat:"mesas", marca:"Contract", n:"Mesa Encino CNT-301", p:2490, o:2990, img:"img/p/mesa-encino.jpg", col:["#a8763e"], specs:{Material:"Madera sólida", Medida:"120 × 75 cm", Uso:"Restaurante", "MOQ proyecto":"4 pzas"}},
+ {id:"CNT-302", cat:"mesas", marca:"Componentes", n:"Mesa Luna CNT-302", p:1990, o:2390, img:"img/p/mesa-luna.jpg", col:["#e8e8e8","#2b2b2b"], specs:{Material:"Cubierta compacta / base metal", Medida:"Ø 70 · H 75 cm", Uso:"Cafetería", "MOQ proyecto":"4 pzas"}},
+ {id:"CNT-303", cat:"mesas", marca:"Contract", n:"Mesa Mármol CNT-303", p:3490, o:3990, img:"img/p/mesa-marmol.jpg", col:["#7a4a3a"], specs:{Material:"Cubierta mármol / base hierro", Medida:"Ø 80 · H 75 cm", Uso:"Restaurante / lounge", "MOQ proyecto":"2 pzas"}},
+ {id:"CNT-304", cat:"mesas", marca:"Contract", n:"Set Comedor Nara CNT-304", p:5990, o:6990, img:"img/p/mesa-comedor.jpg", col:["#a8763e","#e9e4da"], specs:{Incluye:"Mesa + 4 sillas", Medida:"140 × 75 cm", Uso:"Restaurante", "MOQ proyecto":"2 sets"}},
+ // sillones
+ {id:"CNT-401", cat:"sillones", marca:"Contract", n:"Sillón Cognac CNT-401", p:4990, o:5990, img:"img/p/sillon-cognac.jpg", col:["#6b4a2f"], specs:{Material:"Piel capitoneada", Medida:"78 × 80 cm", Uso:"Lobby / lounge", "MOQ proyecto":"2 pzas"}},
+ {id:"CNT-402", cat:"sillones", marca:"Contract", n:"Sillón Chester CNT-402", p:4490, o:5290, img:"img/p/sillon-chester.jpg", col:["#6b4a2f","#2b2b2b"], specs:{Material:"Piel / patas madera", Medida:"75 × 78 cm", Uso:"Espera / lounge", "MOQ proyecto":"2 pzas"}},
+ {id:"CNT-403", cat:"sillones", marca:"Contract", n:"Sillón Sol CNT-403", p:3490, o:3990, img:"img/p/sillon-sol.jpg", col:["#d9a514","#7d8c5c"], specs:{Material:"Tapiz alto tráfico", Medida:"72 × 76 cm", Uso:"Espera / sala", "MOQ proyecto":"2 pzas"}},
+ {id:"CNT-404", cat:"sillones", marca:"Contract", n:"Sillón Nido CNT-404", p:3990, o:4590, img:"img/p/sillon-nido.jpg", col:["#e9e4da","#b9b3a5"], specs:{Material:"Bouclé", Medida:"74 × 78 cm", Uso:"Lounge / cafetería", "MOQ proyecto":"2 pzas"}},
+ {id:"CNT-405", cat:"sillones", marca:"Contract", n:"Sillón Lino CNT-405", p:3290, o:3790, img:"img/p/sillon-lino.jpg", col:["#e9e4da","#a8763e"], specs:{Material:"Madera / asiento tejido", Medida:"70 × 75 cm", Uso:"Cafetería", "MOQ proyecto":"2 pzas"}},
+ // oficina
+ {id:"CNT-501", cat:"oficina", marca:"Oficina", n:"Silla Operativa Lima CNT-501", p:2490, o:2990, img:"img/p/oficina-verde.jpg", col:["#7d8c5c","#2b2b2b"], specs:{Material:"Malla / base nylon", Ajustes:"Altura + respaldo", Uso:"Operativo 8 h", "MOQ proyecto":"5 pzas"}},
+ {id:"CNT-502", cat:"oficina", marca:"Oficina", n:"Sillón Visita Ocre CNT-502", p:1890, o:2190, img:"img/p/oficina-visita.jpg", col:["#c56a1b","#2b2b2b"], specs:{Material:"Tapiz PU / trineo metal", Uso:"Visita / juntas", Apilable:"Sí", "MOQ proyecto":"4 pzas"}},
+];
+
+const SECCIONES = [
+ {id:"nuevos",   t:"Nuevos Productos Contract", ids:["CNT-106","CNT-303","CNT-202","CNT-404","CNT-101"]},
+ {id:"sillas",   t:"Sillas de comedor y exterior", cat:"sillas"},
+ {id:"bancos",   t:"Bancos de barra y cocina", cat:"bancos"},
+ {id:"mesas",    t:"Mesas para restaurante", cat:"mesas"},
+ {id:"sillones", t:"Sillones y Lounge", cat:"sillones"},
+ {id:"oficina",  t:"Oficina y Visita", cat:"oficina"},
+];
+
+function cardHTML(p){
+  const ahorro = Math.round((1 - p.p/p.o) * 100);
+  return `<article class="card" onclick="verProducto('${p.id}')">
+    <div class="foto"><span class="badge">Ahorra ${ahorro}%</span><img src="${p.img}" alt="${p.n}" loading="lazy"></div>
+    <div class="marca">${p.marca}</div>
+    <div class="nombre">${p.n}</div>
+    <div class="precios"><span class="precio-v">${money(p.p)}</span><span class="precio-o">${money(p.o)}</span></div>
+    <div class="colores">${p.col.map(c=>`<i style="background:${c}"></i>`).join("")}</div>
+  </article>`;
 }
 
-// ── Reveal on scroll ──
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-}, { threshold: 0.15 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+$("#catalogo").innerHTML = SECCIONES.map(s => {
+  const items = s.ids ? s.ids.map(id => P.find(p=>p.id===id)) : P.filter(p=>p.cat===s.cat);
+  return `<section class="cat" id="${s.id}">
+    <h2>${s.t}</h2>
+    <div class="carrusel">
+      <button class="flecha prev" aria-label="anterior" onclick="mover('${s.id}',-1)">‹</button>
+      <div class="pista" id="pista-${s.id}">${items.map(cardHTML).join("")}</div>
+      <button class="flecha next" aria-label="siguiente" onclick="mover('${s.id}',1)">›</button>
+    </div>
+    <a class="vertodo" href="#${s.id}" onclick="event.preventDefault()">Ver todo</a>
+  </section>`;
+}).join("");
+
+function mover(id, dir){
+  const el = $("#pista-"+id);
+  el.scrollBy({left: dir * el.clientWidth * 0.9, behavior:"smooth"});
+}
+
+// ── Modal ──
+let actual = null;
+function verProducto(id){
+  const p = P.find(x=>x.id===id); actual = p;
+  $("#m-img").src = p.img; $("#m-img").alt = p.n;
+  $("#m-marca").textContent = p.marca;
+  $("#m-nombre").textContent = p.n;
+  $("#m-precio").textContent = money(p.p);
+  $("#m-viejo").textContent = money(p.o);
+  $("#m-colores").innerHTML = p.col.map(c=>`<i style="background:${c}"></i>`).join("");
+  $("#m-specs").innerHTML = Object.entries(p.specs).map(([k,v])=>`<li><span>${k}</span><span>${v}</span></li>`).join("");
+  $("#velo").classList.add("on"); $("#modal").classList.add("on");
+}
+$("#m-agregar").onclick = () => { agregar(actual.id); cerrarTodo(); abrir("drawer"); };
+$("#m-wa").onclick = () => waLink(`Hola, me interesa ${actual.n} (${money(actual.p)}). ¿Me cotizas?`);
+
+// ── Carrito (cotización) ──
+let cart = JSON.parse(localStorage.getItem("canto-cart") || "{}");
+function guardar(){ localStorage.setItem("canto-cart", JSON.stringify(cart)); pintarCarrito(); }
+function agregar(id){ cart[id] = (cart[id]||0) + 1; guardar(); }
+function cambiar(id, d){ cart[id] = (cart[id]||0) + d; if(cart[id] <= 0) delete cart[id]; guardar(); }
+function pintarCarrito(){
+  const ids = Object.keys(cart);
+  $("#cart-count").textContent = ids.reduce((a,id)=>a+cart[id],0);
+  if(!ids.length){ $("#d-items").innerHTML = `<div class="d-vacio">Tu cotización está vacía.<br>Agrega productos del catálogo.</div>`; $("#d-total").textContent = money(0); return; }
+  $("#d-items").innerHTML = ids.map(id => {
+    const p = P.find(x=>x.id===id);
+    return `<div class="d-item">
+      <img src="${p.img}" alt="">
+      <div><div class="n">${p.n}</div><div class="p">${money(p.p)}</div>
+        <div class="d-qty"><button onclick="cambiar('${id}',-1)">−</button><span>${cart[id]}</span><button onclick="cambiar('${id}',1)">+</button></div>
+      </div>
+      <button class="d-quitar" onclick="cambiar('${id}',-${cart[id]})">Quitar</button>
+    </div>`;
+  }).join("");
+  $("#d-total").textContent = money(ids.reduce((a,id)=>a + P.find(x=>x.id===id).p * cart[id], 0));
+}
+function enviarCotizacion(){
+  const ids = Object.keys(cart);
+  if(!ids.length) return waLink("Hola, quiero cotizar mobiliario para mi local.");
+  const lineas = ids.map(id => { const p = P.find(x=>x.id===id); return `• ${cart[id]} × ${p.n} — ${money(p.p)} c/u`; });
+  const total = money(ids.reduce((a,id)=>a + P.find(x=>x.id===id).p * cart[id], 0));
+  waLink(`Hola, quiero cotizar este proyecto CANTO:\n${lineas.join("\n")}\nTotal estimado: ${total} + IVA\nCiudad de entrega: `);
+}
+
+// ── WhatsApp ──
+function waLink(msg){
+  if(CONFIG.whatsapp) window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+  else if(CONFIG.email) location.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Cotización CANTO") + "&body=" + encodeURIComponent(msg);
+  else alert("Estamos abriendo nuestros canales de contacto junto con el Catálogo 01.\n\nMientras tanto, guarda tu cotización — no se borra.");
+}
+$("#wa-float").onclick = e => { e.preventDefault(); waLink("Hola, quiero información del catálogo CANTO."); };
+if(CONFIG.whatsapp){
+  const num = CONFIG.whatsapp.replace(/^521/, "");
+  $("#tb-txt").innerHTML = `<b>ATENCIÓN WHATSAPP:</b> ${num}`;
+  $("#f-canal").textContent = "WhatsApp: " + num + (CONFIG.email ? " · " + CONFIG.email : "");
+}
+
+// ── Topbar rotativo ──
+const TB = [
+  `<b>ATENCIÓN WHATSAPP:</b> ${CONFIG.whatsapp ? CONFIG.whatsapp.replace(/^521/,"") : "por abrir · Catálogo 01"}`,
+  `<b>PREVENTA:</b> primer contenedor — entrega enero 2027`,
+  `<b>PROYECTOS:</b> amueblamos tu local completo con factura`,
+];
+let tbi = 0;
+function tbMove(d){ tbi = (tbi + d + TB.length) % TB.length; $("#tb-txt").innerHTML = TB[tbi]; }
+setInterval(()=>tbMove(1), 5000);
+
+// ── Hero slider ──
+const slides = document.querySelectorAll(".slide");
+$("#dots").innerHTML = [...slides].map((_,i)=>`<button aria-label="slide ${i+1}" onclick="irSlide(${i})"></button>`).join("");
+const dots = document.querySelectorAll("#dots button");
+let si = 0;
+function irSlide(i){ slides[si].classList.remove("on"); dots[si].classList.remove("on"); si = i; slides[si].classList.add("on"); dots[si].classList.add("on"); }
+irSlide(0);
+setInterval(()=>irSlide((si+1)%slides.length), 6000);
+
+// ── Overlays ──
+function abrir(id){ cerrarTodo(); $("#velo").classList.add("on"); $("#"+id).classList.add("on"); if(id==="busca") $("#b-input").focus(); }
+function cerrarTodo(){ document.querySelectorAll(".velo,.modal,.drawer,.menu,.busca").forEach(e=>e.classList.remove("on")); }
+document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarTodo(); });
+
+// ── Búsqueda ──
+function buscar(q){
+  q = q.trim().toLowerCase();
+  $("#b-res").innerHTML = !q ? "" : P.filter(p => (p.n + p.cat + p.marca).toLowerCase().includes(q))
+    .map(p => `<div class="card" onclick="cerrarTodo();verProducto('${p.id}')" style="font-size:13px">
+      <div class="foto"><img src="${p.img}" alt=""></div>
+      <div class="nombre" style="font-size:13px">${p.n}</div>
+      <div class="precios"><span class="precio-v" style="font-size:13px">${money(p.p)}</span></div>
+    </div>`).join("") || "<p style='color:#888'>Sin resultados.</p>";
+}
+
+// ── Newsletter ──
+function news(){
+  const m = $("#news-mail").value.trim();
+  if(!m) return;
+  const lista = JSON.parse(localStorage.getItem("canto-news") || "[]");
+  lista.push({mail: m, fecha: new Date().toISOString()});
+  localStorage.setItem("canto-news", JSON.stringify(lista));
+  $("#news-mail").value = "";
+  alert("¡Listo! Te avisamos cuando llegue el primer contenedor.");
+}
+
+pintarCarrito();
 </script>
 </body>
 </html>

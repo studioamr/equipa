@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CANTO — Mobiliario contract, directo de fábrica</title>
+<meta name="description" content="Sillas, mesas y bancos para restaurantes, cafeterías y oficinas. Importación directa desde fábrica. México.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#F4F1EA;
+  --papel-2:#ECE8DF;
+  --tinta:#1C1A16;
+  --grafito:#6E695F;
+  --linea:#D9D3C6;
+  --oxido:#C14E24;
+  --serif:"Fraunces",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--papel);color:var(--tinta);font-family:var(--serif);font-weight:300;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafito)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+@media(max-width:720px){.wrap{padding:0 22px}}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--papel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.nav-in{display:flex;align-items:baseline;justify-content:space-between;padding:18px 40px;max-width:1240px;margin:0 auto}
+.logo{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.26em}
+.logo span{color:var(--oxido)}
+.nav-links{display:flex;gap:34px}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafito);transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--oxido)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--oxido);outline-offset:3px}
+@media(max-width:720px){.nav-links{display:none}.nav-in{padding:16px 22px}}
+
+/* ---------- HERO ---------- */
+.hero{min-height:calc(100vh - 60px);display:grid;grid-template-columns:6fr 6fr;align-items:center;gap:40px;padding-top:40px;padding-bottom:60px}
+@media(max-width:920px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:60px}}
+.hero .kicker{display:flex;gap:14px;align-items:center;margin-bottom:26px}
+.kicker-rule{width:44px;height:1px;background:var(--oxido)}
+h1{font-size:clamp(42px,5.6vw,76px);line-height:1.02;font-weight:400;letter-spacing:-.01em}
+h1 em{font-style:italic;font-weight:300;color:var(--oxido)}
+.hero p.lead{margin-top:28px;max-width:46ch;font-size:18px;color:var(--grafito)}
+.cta-row{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--tinta);transition:all .25s}
+.btn.primary{background:var(--tinta);color:var(--papel)}
+.btn.primary:hover{background:var(--oxido);border-color:var(--oxido)}
+.btn.ghost:hover{border-color:var(--oxido);color:var(--oxido)}
+
+/* technical drawing */
+.plano{position:relative}
+.plano svg{width:100%;height:auto;display:block}
+.trazo{fill:none;stroke:var(--tinta);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.hero .trazo{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,0,.2,1) forwards}
+.hero .trazo:nth-child(2){animation-delay:.15s}
+.hero .trazo:nth-child(3){animation-delay:.3s}
+.hero .trazo:nth-child(4){animation-delay:.45s}
+.hero .trazo:nth-child(5){animation-delay:.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cota{stroke:var(--grafito);stroke-width:1;fill:none;opacity:0;animation:aparecer .8s ease 1.7s forwards}
+.cota-txt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--grafito);opacity:0;animation:aparecer .8s ease 1.9s forwards}
+.piso{stroke:var(--linea);stroke-width:1.4}
+@keyframes aparecer{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .hero .trazo{animation:none;stroke-dashoffset:0}
+  .cota,.cota-txt{animation:none;opacity:1}
+  .reveal{transition:none!important;opacity:1!important;transform:none!important}
+}
+
+/* ---------- SECCIONES ---------- */
+section{padding:110px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--tinta);padding-bottom:18px;margin-bottom:0}
+h2{font-size:clamp(30px,3.4vw,48px);font-weight:400;letter-spacing:-.01em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* colecciones */
+.col-row{display:grid;grid-template-columns:70px 1fr 1fr 220px;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--linea);transition:background .3s,color .3s;position:relative}
+.col-row::before{content:"";position:absolute;left:-40px;top:0;bottom:0;width:3px;background:var(--oxido);transform:scaleY(0);transition:transform .3s}
+.col-row:hover::before{transform:scaleY(1)}
+.col-row:hover{background:var(--papel-2)}
+.col-num{font-family:var(--mono);font-size:12px;color:var(--oxido)}
+.col-name{font-size:clamp(22px,2.4vw,32px);font-weight:400}
+.col-name .mono{display:block;margin-top:8px}
+.col-desc{font-size:15px;color:var(--grafito);max-width:38ch}
+.col-fig img{width:100%;max-width:210px;aspect-ratio:4/5;object-fit:cover;display:block;margin-left:auto;filter:saturate(.92) contrast(1.03) sepia(.06)}
+@media(max-width:920px){.col-fig img{max-width:120px}}
+@media(max-width:920px){.col-row{grid-template-columns:40px 1fr 120px}.col-desc{display:none}}
+
+/* modelo */
+.modelo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;margin-top:70px}
+@media(max-width:920px){.modelo-grid{grid-template-columns:1fr;gap:44px}}
+.paso .mono{color:var(--oxido)}
+.paso h3{font-size:24px;font-weight:400;margin:14px 0 12px}
+.paso p{font-size:15.5px;color:var(--grafito)}
+.claim{margin-top:100px;font-size:clamp(28px,3.6vw,52px);font-weight:300;line-height:1.15;max-width:20ch}
+.claim strong{font-weight:500;color:var(--oxido)}
+
+.compromisos{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--tinta)}
+.compromisos .mono{padding:20px 24px 4px 0;border-right:1px solid var(--linea);color:var(--tinta)}
+.compromisos .mono:last-child{border-right:none}
+@media(max-width:920px){.compromisos{grid-template-columns:1fr 1fr;row-gap:18px}}
+
+.banda{margin:0}
+.banda img{width:100%;height:min(64vh,560px);object-fit:cover;display:block;filter:saturate(.92) contrast(1.03) sepia(.06)}
+.banda figcaption{display:block;max-width:1240px;margin:14px auto 0;padding:0 40px 40px}
+
+/* proyectos (dark) */
+.proyectos{background:var(--tinta);color:var(--papel)}
+.proyectos .mono{color:#A39C8E}
+.proyectos h2{max-width:16ch}
+.pack{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:end}
+@media(max-width:920px){.pack{grid-template-columns:1fr}}
+.pack-list{list-style:none;border-top:1px solid #3A362F}
+.pack-list li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #3A362F;font-size:17px}
+.pack-list .qty{font-family:var(--mono);font-size:13px;color:var(--oxido)}
+.pack p{color:#B8B1A2;font-size:16px;max-width:44ch}
+.proyectos .btn{border-color:var(--papel);color:var(--papel);margin-top:34px}
+.proyectos .btn:hover{background:var(--oxido);border-color:var(--oxido)}
+
+/* ruta */
+.ruta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;border-left:1px solid var(--linea)}
+@media(max-width:920px){.ruta-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ruta-grid{grid-template-columns:1fr}}
+.hito{padding:0 28px 10px;border-right:1px solid var(--linea)}
+.hito .fecha{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--oxido)}
+.hito h3{font-size:19px;font-weight:500;margin:12px 0 8px}
+.hito p{font-size:14.5px;color:var(--grafito)}
+.hito.activo .fecha::after{content:" ●";font-size:9px}
+.ruta-nota{margin-top:60px;font-size:15px;color:var(--grafito);max-width:62ch;font-style:italic}
+
+/* contacto */
+.contacto{padding-bottom:140px}
+.contacto h2{font-size:clamp(38px,5vw,68px);max-width:14ch;line-height:1.05}
+.contacto .lead{margin-top:24px;color:var(--grafito);max-width:44ch}
+.canales{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+.canal-nota{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--grafito);border:1px dashed var(--linea);padding:16px 24px}
+
+footer{border-top:1px solid var(--linea);padding:30px 0 44px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav aria-label="principal">
+  <div class="nav-in">
+    <a class="logo" href="#">CANT<span>O</span></a>
+    <div class="nav-links">
+      <a href="#colecciones">Colecciones</a>
+      <a href="#modelo">El modelo</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#ruta">La ruta</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap hero">
+  <div>
+    <div class="kicker">
+      <span class="kicker-rule"></span>
+      <span class="mono">Importación directa · Cap. 94</span>
+    </div>
+    <h1>Mobiliario contract, <em>directo de fábrica.</em></h1>
+    <p class="lead">Sillas, mesas y bancos para restaurantes, cafeterías, bares y oficinas. Los curamos en la fábrica, los traemos por contenedor y los entregamos en tu local — sin showroom y sin intermediarios de por medio.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contacto">Cotizar un proyecto</a>
+      <a class="btn ghost" href="#colecciones">Ver colecciones</a>
+    </div>
+  </div>
+  <figure class="plano" aria-label="Plano técnico de silla contract, altura total 810 mm, altura de asiento 460 mm">
+    <svg viewBox="0 0 420 540" role="img">
+      <line class="piso" x1="30" y1="490" x2="390" y2="490"/>
+      <path class="trazo" pathLength="1" d="M238 52 Q 226 180 224 306"/>
+      <path class="trazo" pathLength="1" d="M224 306 L 98 306"/>
+      <path class="trazo" pathLength="1" d="M104 306 L 88 488"/>
+      <path class="trazo" pathLength="1" d="M224 306 L 246 488"/>
+      <path class="trazo" pathLength="1" d="M238 52 q -8 -12 -20 -6"/>
+      <g class="cota">
+        <line x1="316" y1="52" x2="316" y2="488"/>
+        <line x1="308" y1="52" x2="324" y2="52"/>
+        <line x1="308" y1="488" x2="324" y2="488"/>
+      </g>
+      <text class="cota-txt" x="330" y="274">810</text>
+      <g class="cota">
+        <line x1="52" y1="306" x2="52" y2="488"/>
+        <line x1="44" y1="306" x2="60" y2="306"/>
+        <line x1="44" y1="488" x2="60" y2="488"/>
+      </g>
+      <text class="cota-txt" x="18" y="402">460</text>
+      <text class="cota-txt" x="150" y="524">SILLA 01 · ACERO / FRESNO</text>
+    </svg>
+  </figure>
+</header>
+
+<main>
+
+<section id="colecciones" class="wrap">
+  <div class="sec-head reveal">
+    <h2>Colecciones</h2>
+    <span class="mono">Catálogo 01 · Dic 2026</span>
+  </div>
+
+  <a class="col-row reveal" href="#contacto">
+    <span class="col-num">01</span>
+    <span class="col-name">Sillas<span class="mono">Partida 9401 · Comedor y terraza</span></span>
+    <span class="col-desc">Apilables de acero, respaldo curvo, madera de fresno. Para servicio rudo, todos los días.</span>
+    <span class="col-fig"><img src="img/sillas.jpg" alt="Sillas de madera junto a ventana en cafetería" loading="lazy"></span>
+  </a>
+
+  <a class="col-row reveal" href="#contacto">
+    <span class="col-num">02</span>
+    <span class="col-name">Bancos de barra<span class="mono">Partida 9401 · H 650 / 750</span></span>
+    <span class="col-desc">Dos alturas, asiento de madera o tapizado, estribo de acero. La barra es el corazón del local.</span>
+    <span class="col-fig"><img src="img/bancos.jpg" alt="Bancos de barra de madera con patas metálicas" loading="lazy"></span>
+  </a>
+
+  <a class="col-row reveal" href="#contacto">
+    <span class="col-num">03</span>
+    <span class="col-name">Mesas<span class="mono">Partida 9403 · Bases y cubiertas</span></span>
+    <span class="col-desc">Bases de hierro, cubiertas de madera o compacto. Redondas, cuadradas y de barra.</span>
+    <span class="col-fig"><img src="img/mesas.jpg" alt="Mesa de madera con sillas en restaurante" loading="lazy"></span>
+  </a>
+
+  <a class="col-row reveal" href="#contacto">
+    <span class="col-num">04</span>
+    <span class="col-name">Lounge<span class="mono">Partida 9401 · Espera y sala</span></span>
+    <span class="col-desc">Sillones y bancas para lobby, espera y esquinas lentas. Tapicería que aguanta uso comercial.</span>
+    <span class="col-fig"><img src="img/lounge.jpg" alt="Sillón lounge tapizado claro" loading="lazy"></span>
+  </a>
+
+  <p class="ruta-nota reveal">Fotos de referencia del tipo de línea en curación. El catálogo 01 se cierra en la fábrica, no en el render — cada pieza se elige, se prueba y se negocia en persona.</p>
+</section>
+
+<section id="modelo" class="wrap">
+  <div class="sec-head reveal">
+    <h2>El modelo</h2>
+    <span class="mono">Fábrica → contenedor → tu local</span>
+  </div>
+  <div class="modelo-grid">
+    <div class="paso reveal">
+      <span class="mono">01 · Curación</span>
+      <h3>Elegimos en la fábrica</h3>
+      <p>Foshan y Guangzhou concentran a los fabricantes de mobiliario comercial del mundo. Ahí seleccionamos, probamos calidad y negociamos precio de origen.</p>
+    </div>
+    <div class="paso reveal">
+      <span class="mono">02 · Contenedor</span>
+      <h3>Importación propia</h3>
+      <p>Consolidamos por contenedor con inspección de calidad antes de embarcar. Puerto de Manzanillo, agente aduanal, todo en regla y con factura.</p>
+    </div>
+    <div class="paso reveal">
+      <span class="mono">03 · Entrega</span>
+      <h3>Directo a tu local</h3>
+      <p>Del puerto a tu restaurante, cafetería u oficina. Sin pasar por showroom, bodega de distribuidor ni margen de terceros.</p>
+    </div>
+  </div>
+  <p class="claim reveal">El mismo mueble que ves en el showroom, <strong>sin el precio del showroom.</strong></p>
+  <div class="compromisos reveal">
+    <span class="mono">Precio público, sin cotización a ciegas</span>
+    <span class="mono">Factura CFDI en cada pedido</span>
+    <span class="mono">Garantía escrita · 2 años en estructura</span>
+    <span class="mono">Fecha de entrega comprometida</span>
+  </div>
+</section>
+
+<figure class="banda reveal">
+  <img src="img/ambiente.jpg" alt="Interior de cafetería moderna amueblada con mesas y sillas" loading="lazy">
+  <figcaption class="mono">Proyecto tipo · Cafetería 20 plazas — el look que amueblamos</figcaption>
+</figure>
+
+<section id="proyectos" class="proyectos">
+  <div class="wrap">
+    <div class="sec-head reveal" style="border-color:#3A362F">
+      <h2>¿Abres un local?</h2>
+      <span class="mono">Proyectos completos</span>
+    </div>
+    <div class="pack">
+      <div class="reveal">
+        <p>Amueblar un restaurante no debería ser perseguir a cinco proveedores. Nos das el plano y el concepto; regresamos con una sola cotización, un solo embarque y una sola entrega.</p>
+        <a class="btn" href="#contacto">Cotizar mi local</a>
+      </div>
+      <ul class="pack-list reveal" aria-label="Ejemplo de proyecto tipo">
+        <li><span>Sillas de comedor</span><span class="qty">× 40</span></li>
+        <li><span>Mesas base + cubierta</span><span class="qty">× 12</span></li>
+        <li><span>Bancos de barra</span><span class="qty">× 8</span></li>
+        <li><span>Lounge / espera</span><span class="qty">× 2</span></li>
+        <li><span>Cotización y entrega</span><span class="qty">× 1</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="ruta" class="wrap">
+  <div class="sec-head reveal">
+    <h2>La ruta</h2>
+    <span class="mono">Bitácora real, sin humo</span>
+  </div>
+  <div class="ruta-grid">
+    <div class="hito activo reveal">
+      <span class="fecha">AGO 2026</span>
+      <h3>Marca y preventa</h3>
+      <p>Nace CANTO. Abrimos lista de proyectos para el primer contenedor.</p>
+    </div>
+    <div class="hito reveal">
+      <span class="fecha">OCT 2026</span>
+      <h3>Foshan · Cantón</h3>
+      <p>Fábricas en Foshan y Longjiang, y Canton Fair (23–27 oct). El catálogo se decide ahí.</p>
+    </div>
+    <div class="hito reveal">
+      <span class="fecha">NOV 2026</span>
+      <h3>Producción</h3>
+      <p>Pedido en firme, inspección de calidad y embarque en puerto.</p>
+    </div>
+    <div class="hito reveal">
+      <span class="fecha">ENE 2027</span>
+      <h3>Primer contenedor</h3>
+      <p>Llegada a México y entrega de los primeros proyectos.</p>
+    </div>
+  </div>
+  <p class="ruta-nota reveal">Esta página crece con el viaje: fotos de fábrica, muestras reales y precios cerrados conforme sucedan — no antes.</p>
+</section>
+
+<section id="contacto" class="wrap contacto">
+  <div class="kicker reveal">
+    <span class="kicker-rule"></span>
+    <span class="mono">Contacto</span>
+  </div>
+  <h2 class="reveal">Hablemos de tu local.</h2>
+  <p class="lead reveal">Cuéntanos qué vas a abrir — o qué vas a renovar — y te apartamos lugar en el primer contenedor.</p>
+  <div class="canales reveal" id="canales"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">CANTO · Mobiliario contract</span>
+    <span class="mono">Morelia, México · 2026</span>
+  </div>
+</footer>
+
+<script>
+// ── CONFIG · canales (vacío a propósito: llenar cuando estén listos) ──
+const CONFIG = {
+  whatsapp: "",   // ej. "5214431234567" (con 521)
+  email: "",      // ej. "hola@canto.mx"
+  ciudad: "Morelia, México"
+};
+
+const canales = document.getElementById("canales");
+if (CONFIG.whatsapp) {
+  const wa = document.createElement("a");
+  wa.className = "btn primary";
+  wa.textContent = "WhatsApp";
+  wa.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" +
+    encodeURIComponent("Hola, quiero cotizar mobiliario para mi local.");
+  wa.target = "_blank"; wa.rel = "noopener";
+  canales.appendChild(wa);
+}
+if (CONFIG.email) {
+  const em = document.createElement("a");
+  em.className = "btn ghost";
+  em.textContent = "Escríbenos";
+  em.href = "mailto:" + CONFIG.email;
+  canales.appendChild(em);
+}
+if (!CONFIG.whatsapp && !CONFIG.email) {
+  const nota = document.createElement("span");
+  nota.className = "canal-nota";
+  nota.textContent = "Canales en apertura · Catálogo 01 — Dic 2026";
+  canales.appendChild(nota);
+}
+
+// ── Reveal on scroll ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
