@@ -21,3 +21,16 @@
 2. A los 3 mejores por categoría: responder con el RFQ de `ventas/rfq-proveedores.md` pidiendo PI formal + fotos autorizadas + muestra.
 3. Fotos autorizadas → `img/reales/<proveedor>/` y sustituir en la página.
 4. Shortlist final = a quién visitar en Foshan/Canton Fair en octubre.
+
+## Segunda ronda (20-ago-2026) — taxonomía completa de André
+
+| # | RFQ (ID) | Familia / Categoría | Cantidad |
+|---|---|---|---|
+| 10 | 1685052453 | GUARDAR: credenzas, aparadores, libreros, gabinetes, cajoneras (melamina E1/madera) | 60 |
+| 11 | 1685052456 | REPOSAR: camas queen/king con cabecera tapizada, divanes, chaise longues (hotel) | 40 |
+| 12 | 1685052457 | Camastros exterior: tumbonas aluminio apilables + mesas laterales (alberca/hotel) | 40 |
+| 13 | 1684777358 | APOYAR aux: mesas de centro, auxiliares y consolas (metal + madera/mármol/HPL) | 60 |
+| 14 | 1685052459 | DIVIDIR: biombos, estanterías divisorias modulares, paneles acústicos | 40 |
+| 15 | 1685591572 | COMPLETAR: espejos de cuerpo completo, percheros, pedestales, maceteros, revisteros | 100 |
+
+Con esto las 7 ramas de la taxonomía (Asientos, Mesas, Almacenamiento, Descanso, Superficies, Complementos, Exterior) tienen RFQ activo. Nota: la IA de Alibaba a veces clasifica mal la categoría — se corrigió a mano en 10 (aparadores), 14 (biombos) y 15 (decoración). La palabra "Tolix" está bloqueada por marca.
