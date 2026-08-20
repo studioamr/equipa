@@ -114,8 +114,12 @@ section.cat h2{text-align:center;font-size:clamp(20px,2.6vw,26px);font-weight:70
 .modal{position:fixed;z-index:100;inset:auto;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;width:min(920px,94vw);max-height:90vh;overflow:auto;display:none}
 .modal.on{display:grid;grid-template-columns:1fr 1fr}
 @media(max-width:760px){.modal.on{grid-template-columns:1fr}}
-.modal .m-foto{background:#f6f6f6;min-height:320px}
-.modal .m-foto img{width:100%;height:100%;object-fit:cover}
+.modal .m-foto{background:#f6f6f6;min-height:320px;display:flex;flex-direction:column}
+.modal .m-foto .m-principal{width:100%;flex:1;min-height:280px;object-fit:cover}
+.m-thumbs{display:flex;gap:8px;padding:10px;background:#fff}
+.m-thumbs img{width:64px;height:64px;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:.75;transition:all .2s}
+.m-thumbs img.on{border-color:var(--badge);opacity:1}
+.m-thumbs img:hover{opacity:1}
 .m-info{padding:34px 32px 38px;position:relative}
 .m-cerrar{position:absolute;top:10px;right:12px;font-size:26px;color:#888;width:38px;height:38px}
 .m-info .marca{color:var(--gris);font-size:13px}
@@ -340,7 +344,7 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
 <!-- Modal producto -->
 <div class="velo" id="velo" onclick="cerrarTodo()"></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true">
-  <div class="m-foto"><img id="m-img" src="" alt=""></div>
+  <div class="m-foto"><img id="m-img" class="m-principal" src="" alt=""><div class="m-thumbs" id="m-thumbs"></div></div>
   <div class="m-info">
     <button class="m-cerrar" aria-label="cerrar" onclick="cerrarTodo()">×</button>
     <div class="marca" id="m-marca"></div>
@@ -537,10 +541,14 @@ function mover(id, dir){
 }
 
 // ── Modal ──
+const GAL = {"EQP-101":["img/p/g/EQP-101-2.jpg","img/p/g/EQP-101-3.jpg"],"EQP-102":["img/p/g/EQP-102-2.jpg","img/p/g/EQP-102-3.jpg"],"EQP-103":["img/p/g/EQP-103-2.jpg","img/p/g/EQP-103-3.jpg"],"EQP-104":["img/p/g/EQP-104-2.jpg","img/p/g/EQP-104-3.jpg"],"EQP-105":["img/p/g/EQP-105-2.jpg","img/p/g/EQP-105-3.jpg"],"EQP-106":["img/p/g/EQP-106-2.jpg","img/p/g/EQP-106-3.jpg"],"EQP-201":["img/p/g/EQP-201-2.jpg","img/p/g/EQP-201-3.jpg"],"EQP-202":["img/p/g/EQP-202-2.jpg","img/p/g/EQP-202-3.jpg"],"EQP-203":["img/p/g/EQP-203-2.jpg","img/p/g/EQP-203-3.jpg"],"EQP-204":["img/p/g/EQP-204-2.jpg","img/p/g/EQP-204-3.jpg"],"EQP-205":["img/p/g/EQP-205-2.jpg","img/p/g/EQP-205-3.jpg"],"EQP-301":["img/p/g/EQP-301-2.jpg","img/p/g/EQP-301-3.jpg"],"EQP-302":["img/p/g/EQP-302-2.jpg","img/p/g/EQP-302-3.jpg"],"EQP-303":["img/p/g/EQP-303-2.jpg","img/p/g/EQP-303-3.jpg"],"EQP-304":["img/p/g/EQP-304-2.jpg","img/p/g/EQP-304-3.jpg"],"EQP-401":["img/p/g/EQP-401-2.jpg","img/p/g/EQP-401-3.jpg"],"EQP-402":["img/p/g/EQP-402-2.jpg","img/p/g/EQP-402-3.jpg"],"EQP-403":["img/p/g/EQP-403-2.jpg","img/p/g/EQP-403-3.jpg"],"EQP-404":["img/p/g/EQP-404-2.jpg","img/p/g/EQP-404-3.jpg"],"EQP-405":["img/p/g/EQP-405-2.jpg","img/p/g/EQP-405-3.jpg"],"EQP-501":["img/p/g/EQP-501-2.jpg","img/p/g/EQP-501-3.jpg"],"EQP-502":["img/p/g/EQP-502-2.jpg","img/p/g/EQP-502-3.jpg"],"EQP-601":["img/p/g/EQP-601-2.jpg","img/p/g/EQP-601-3.jpg"],"EQP-602":["img/p/g/EQP-602-2.jpg","img/p/g/EQP-602-3.jpg"],"EQP-603":["img/p/g/EQP-603-2.jpg","img/p/g/EQP-603-3.jpg"],"EQP-701":["img/p/g/EQP-701-2.jpg","img/p/g/EQP-701-3.jpg"],"EQP-702":["img/p/g/EQP-702-2.jpg","img/p/g/EQP-702-3.jpg"],"EQP-703":["img/p/g/EQP-703-2.jpg","img/p/g/EQP-703-3.jpg"],"EQP-801":["img/p/g/EQP-801-2.jpg","img/p/g/EQP-801-3.jpg"],"EQP-802":["img/p/g/EQP-802-2.jpg","img/p/g/EQP-802-3.jpg"],"EQP-803":["img/p/g/EQP-803-2.jpg","img/p/g/EQP-803-3.jpg"],"EQP-901":["img/p/g/EQP-901-2.jpg","img/p/g/EQP-901-3.jpg"],"EQP-902":["img/p/g/EQP-902-2.jpg","img/p/g/EQP-902-3.jpg"],"EQP-951":["img/p/g/EQP-951-2.jpg","img/p/g/EQP-951-3.jpg"],"EQP-952":["img/p/g/EQP-952-2.jpg","img/p/g/EQP-952-3.jpg"],"EQP-953":["img/p/g/EQP-953-2.jpg","img/p/g/EQP-953-3.jpg"],"EQP-960":["img/p/g/EQP-960-2.jpg","img/p/g/EQP-960-3.jpg"],"EQP-961":["img/p/g/EQP-961-2.jpg","img/p/g/EQP-961-3.jpg"],"EQP-962":["img/p/g/EQP-962-2.jpg","img/p/g/EQP-962-3.jpg"]};
 let actual = null;
 function verProducto(id){
   const p = P.find(x=>x.id===id); actual = p;
-  $("#m-img").src = p.img; $("#m-img").alt = p.n;
+  const fotos = [p.img, ...(GAL[p.id] || [])];
+  $("#m-img").src = fotos[0]; $("#m-img").alt = p.n;
+  $("#m-thumbs").innerHTML = fotos.map((f,i) =>
+    `<img src="${f}" class="${i===0?'on':''}" alt="vista ${i+1}" onclick="cambiarFoto(this,'${f}')">`).join("");
   $("#m-marca").textContent = p.marca;
   $("#m-nombre").textContent = p.n;
   $("#m-precio").textContent = money(p.p);
@@ -548,6 +556,11 @@ function verProducto(id){
   $("#m-colores").innerHTML = p.col.map(c=>`<i style="background:${c}"></i>`).join("");
   $("#m-specs").innerHTML = Object.entries(p.specs).map(([k,v])=>`<li><span>${k}</span><span>${v}</span></li>`).join("");
   $("#velo").classList.add("on"); $("#modal").classList.add("on");
+}
+function cambiarFoto(el, src){
+  $("#m-img").src = src;
+  document.querySelectorAll("#m-thumbs img").forEach(t=>t.classList.remove("on"));
+  el.classList.add("on");
 }
 $("#m-agregar").onclick = () => { agregar(actual.id); cerrarTodo(); abrir("drawer"); };
 $("#m-wa").onclick = () => waLink(`Hola, me interesa ${actual.n} (${money(actual.p)}). ¿Me cotizas?`);
