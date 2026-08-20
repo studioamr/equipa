@@ -178,6 +178,43 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
 .news input{flex:1;border:1px solid #bbb;border-right:none;padding:11px 14px;font-size:13.5px;font-family:var(--sans);background:#fff}
 .news button{background:var(--negro);color:#fff;padding:0 20px;font-size:13.5px}
 .copy{text-align:center;font-size:12.5px;color:var(--gris);padding:26px 20px;margin-top:40px;border-top:1px solid var(--linea)}
+
+/* ── Nav horizontal + mega menú ── */
+.head-in{grid-template-columns:auto 1fr auto}
+.logo{justify-self:start}
+.nav-top{justify-self:center;display:flex;gap:30px;align-items:center}
+.nav-top > div > a, .nav-top > a{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:12px 2px;display:inline-block}
+.nav-top a:hover{color:var(--badge)}
+.has-mega{position:static}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--linea);box-shadow:0 22px 34px rgba(0,0,0,.09);display:none;padding:34px 0 42px;z-index:70}
+.has-mega:hover .mega,.has-mega:focus-within .mega{display:block}
+.mega-in{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.mega h4{font-size:14.5px;font-weight:700;margin-bottom:12px}
+.mega a{display:block;padding:7px 0;font-size:14.5px;color:#333;letter-spacing:0;text-transform:none;font-weight:400}
+.mega a:hover{text-decoration:underline;color:var(--negro)}
+@media(max-width:960px){.nav-top{display:none}}
+@media(min-width:961px){.head-icons .burger{display:none!important}.head-in{grid-template-columns:auto 1fr auto}}
+
+/* ── Vistas (catálogo / ofertas / contacto) ── */
+.vista{display:none;max-width:1240px;margin:0 auto;padding:44px 20px 30px}
+.vista > h1{font-size:27px;font-weight:700;text-align:center;margin-bottom:6px}
+.chips{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:20px 0 30px;font-size:15px}
+.chips a{color:#333;padding-bottom:4px;border-bottom:2px solid transparent}
+.chips a.on{font-weight:700;border-bottom-color:var(--badge)}
+.of-meta{font-size:14px;color:var(--gris);margin-bottom:20px}
+.grid-of{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:30px 22px}
+.grid-colec{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;margin-top:26px}
+.colec{position:relative;display:block;background:#f2f2f2;aspect-ratio:1;overflow:hidden}
+.colec img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.colec:hover img{transform:scale(1.05)}
+.colec .tag{position:absolute;left:0;right:0;bottom:0;padding:46px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff}
+.colec .tag b{font-size:17px;display:block}
+.colec .tag span{font-size:12.5px;opacity:.92}
+.form-c{max-width:760px;margin:0 auto}
+.form-c label{display:block;font-weight:700;font-size:14.5px;margin:24px 0 10px}
+.form-c input,.form-c textarea{width:100%;border:1px solid #c7c7c7;padding:13px 15px;font-family:var(--sans);font-size:14.5px}
+.form-c textarea{min-height:170px}
+.form-c button{width:100%;border:none;margin-top:28px;font-size:15px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -190,9 +227,42 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
 
 <header class="site">
   <div class="head-in">
-    <button class="burger" aria-label="menú" onclick="abrir('menu')"><span></span></button>
     <a class="logo" href="#">EQUIP<em>A</em><small>EQUIPAMIENTO DE DESARROLLOS</small></a>
+    <nav class="nav-top" aria-label="principal">
+      <div class="has-mega">
+        <a href="#catalogo">Muebles ▾</a>
+        <div class="mega">
+          <div class="mega-in">
+            <div>
+              <h4>Mesas y Escritorios</h4>
+              <a href="#mesas">Mesas para Restaurante</a>
+              <a href="#juntas">Mesas de Juntas</a>
+              <a href="#escritorios">Escritorios</a>
+              <a href="#exterior">Mesas y Sillas de Exterior</a>
+            </div>
+            <div>
+              <h4>Todas las Sillas</h4>
+              <a href="#sillas">Sillas de Comedor</a>
+              <a href="#bancos">Bancos de Barra</a>
+              <a href="#ejecutivas">Sillones Ejecutivos</a>
+              <a href="#oficina">Sillas Operativas y de Visita</a>
+            </div>
+            <div>
+              <h4>Todos los Muebles</h4>
+              <a href="#sillones">Sillones y Lounge</a>
+              <a href="#sofas">Sillones y Sofás</a>
+              <a href="#tandem">Bancas Tándem</a>
+              <a href="#catalogo"><b>Ver todo el catálogo →</b></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
     <div class="head-icons">
+      <button class="burger" aria-label="menú" onclick="abrir('menu')" style="width:40px;height:40px"><span></span></button>
       <button aria-label="buscar" onclick="abrir('busca')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button>
       <button aria-label="cotización" onclick="abrir('drawer')">
         <svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
@@ -207,7 +277,7 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
   <p>Aguascalientes · CDMX · Colima · Edo. de México · Guanajuato · Jalisco · Michoacán · Nuevo León · Puebla · Querétaro · SLP · Sinaloa. <a href="#sillas">Ver colección.</a></p>
 </div>
 
-<div class="hero" id="hero">
+<div class="hero solo-home" id="hero">
   <div class="slide on">
     <img src="img/ambiente.jpg" alt="Cafetería amueblada con mobiliario contract">
     <div class="slide-txt">
@@ -227,9 +297,38 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
   <div class="dots" id="dots"></div>
 </div>
 
-<main id="catalogo"></main>
+<main id="cat-home" class="solo-home"></main>
 
-<div class="franja" id="proyecto">
+
+<!-- Vistas: catálogo / ofertas / contacto -->
+<section class="vista" id="vista-catalogo">
+  <h1>Catálogo</h1>
+  <div class="grid-colec" id="grid-colec"></div>
+</section>
+
+<section class="vista" id="vista-ofertas">
+  <h1>Ofertas</h1>
+  <div class="chips" id="chips"></div>
+  <div class="of-meta" id="of-meta"></div>
+  <div class="grid-of" id="grid-of"></div>
+</section>
+
+<section class="vista" id="vista-contacto">
+  <h1>Contáctanos</h1>
+  <form class="form-c" onsubmit="enviarContacto(event)">
+    <label for="c-nombre">Nombre</label>
+    <input id="c-nombre" placeholder="Nombre" required>
+    <label for="c-mail">Correo electrónico</label>
+    <input id="c-mail" type="email" placeholder="Correo electrónico">
+    <label for="c-tel">Número de teléfono</label>
+    <input id="c-tel" placeholder="Número de teléfono">
+    <label for="c-msj">Mensaje</label>
+    <textarea id="c-msj" placeholder="Cuéntanos de tu proyecto: tipo de local o desarrollo, plaza y fecha objetivo"></textarea>
+    <button class="btn-oliva" type="submit">Enviar</button>
+  </form>
+</section>
+
+<div class="franja solo-home" id="proyecto">
   <div class="fr-grid">
     <div><h3>Precio público</h3><p>Sin cotización a ciegas: lo que ves es el precio.</p></div>
     <div><h3>Factura CFDI</h3><p>En cada pedido, deducible para tu negocio.</p></div>
@@ -306,7 +405,7 @@ footer.site{background:#f7f7f5;margin-top:70px;padding:52px 0 0;border-top:1px s
   Contacto Whatsapp
 </a>
 
-<footer class="site" id="contacto">
+<footer class="site">
   <div class="f-grid">
     <div>
       <h3>Contacto</h3>
@@ -419,7 +518,7 @@ function cardHTML(p){
   </article>`;
 }
 
-$("#catalogo").innerHTML = SECCIONES.map(s => {
+$("#cat-home").innerHTML = SECCIONES.map(s => {
   const items = s.ids ? s.ids.map(id => P.find(p=>p.id===id)) : P.filter(p=>p.cat===s.cat);
   return `<section class="cat" id="${s.id}">
     <h2>${s.t}</h2>
@@ -428,7 +527,7 @@ $("#catalogo").innerHTML = SECCIONES.map(s => {
       <div class="pista" id="pista-${s.id}">${items.map(cardHTML).join("")}</div>
       <button class="flecha next" aria-label="siguiente" onclick="mover('${s.id}',1)">›</button>
     </div>
-    <a class="vertodo" href="#${s.id}" onclick="event.preventDefault()">Ver todo</a>
+    <a class="vertodo" href="#ofertas">Ver todo</a>
   </section>`;
 }).join("");
 
@@ -540,6 +639,66 @@ function news(){
   $("#news-mail").value = "";
   alert("¡Listo! Te avisamos cuando llegue el primer contenedor.");
 }
+
+
+// ── Vistas / router ──
+const CATS = [
+ {cat:"sillas", t:"Sillas de Comedor y Exterior", img:"img/p/silla-prado.jpg"},
+ {cat:"bancos", t:"Bancos de Barra", img:"img/p/banco-ambar.jpg"},
+ {cat:"mesas", t:"Mesas para Restaurante", img:"img/p/mesa-marmol.jpg"},
+ {cat:"sillones", t:"Sillones y Lounge", img:"img/p/sillon-cognac.jpg"},
+ {cat:"sofas", t:"Sillones y Sofás", img:"img/p/sofa-beige.jpg"},
+ {cat:"ejecutivas", t:"Sillones Ejecutivos", img:"img/p/eje-piel.jpg"},
+ {cat:"oficina", t:"Sillas Operativas y de Visita", img:"img/p/oficina-verde.jpg"},
+ {cat:"escritorios", t:"Escritorios", img:"img/p/esc-nogal.jpg"},
+ {cat:"juntas", t:"Mesas de Juntas", img:"img/p/juntas-negra.jpg"},
+ {cat:"tandem", t:"Bancas Tándem", img:"img/p/tandem-negra.jpg"},
+ {cat:"exterior", t:"Mesas y Sillas de Exterior", img:"img/p/ext-metal.jpg"},
+];
+const AMB = {
+ sillas:["Restaurante","Cafetería"], bancos:["Restaurante","Cafetería","Hotel"],
+ mesas:["Restaurante","Cafetería"], sillones:["Hotel","Cafetería","Recepción"],
+ sofas:["Hotel","Desarrollo","Oficina"], ejecutivas:["Oficina"], oficina:["Oficina"],
+ escritorios:["Oficina"], juntas:["Oficina"], tandem:["Recepción","Desarrollo"],
+ exterior:["Exterior","Restaurante"]
+};
+const AMBIENTES = ["Todos","Restaurante","Cafetería","Oficina","Hotel","Recepción","Desarrollo","Exterior"];
+let ambSel = "Todos";
+
+function pintarColecciones(){
+  $("#grid-colec").innerHTML = CATS.map(c => {
+    const n = P.filter(p=>p.cat===c.cat).length;
+    return `<a class="colec" href="#${c.cat}"><img src="${c.img}" alt="${c.t}" loading="lazy"><span class="tag"><b>${c.t}</b><span>${n} Artículo(s)</span></span></a>`;
+  }).join("");
+}
+function pintarOfertas(){
+  $("#chips").innerHTML = AMBIENTES.map(a =>
+    `<a href="#ofertas" class="${a===ambSel?'on':''}" onclick="ambSel='${a}';pintarOfertas();return false">${a}</a>`).join("");
+  const items = P.filter(p => ambSel==="Todos" || (AMB[p.cat]||[]).includes(ambSel));
+  $("#of-meta").textContent = items.length + " productos";
+  $("#grid-of").innerHTML = items.map(cardHTML).join("");
+}
+function enviarContacto(e){
+  e.preventDefault();
+  const n = $("#c-nombre").value, m = $("#c-mail").value, t = $("#c-tel").value, x = $("#c-msj").value;
+  const leads = JSON.parse(localStorage.getItem("equipa-leads") || "[]");
+  leads.push({n, m, t, x, fecha: new Date().toISOString()});
+  localStorage.setItem("equipa-leads", JSON.stringify(leads));
+  waLink(`Hola, soy ${n}.\n${x}\nTel: ${t}${m ? "\nCorreo: " + m : ""}`);
+}
+const VISTAS = ["catalogo","ofertas","contacto"];
+function router(){
+  const hsh = location.hash.replace("#","");
+  const v = VISTAS.includes(hsh) ? hsh : "home";
+  document.querySelectorAll(".solo-home").forEach(e => e.style.display = v==="home" ? "" : "none");
+  VISTAS.forEach(x => { $("#vista-"+x).style.display = x===v ? "block" : "none"; });
+  if(v==="ofertas") pintarOfertas();
+  if(v==="catalogo") pintarColecciones();
+  if(VISTAS.includes(hsh)) window.scrollTo(0,0);
+  else if(hsh) setTimeout(()=>document.getElementById(hsh)?.scrollIntoView(), 30);
+}
+window.addEventListener("hashchange", router);
+router();
 
 pintarCarrito();
 </script>
