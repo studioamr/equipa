@@ -17,6 +17,10 @@ Curación en fábrica (Foshan/Guangzhou) → contenedor propio con inspección �
 ## CONFIG (vacío a propósito)
 En `index.html`, objeto `CONFIG`: `whatsapp` (formato 521...), `email`. Mientras estén vacíos, los botones de WhatsApp explican que los canales abren con el Catálogo 01 (el carrito no se pierde). Llenar cuando existan los canales reales.
 
+## Kit de ventas (`ventas/`)
+- `EQUIPA-KIT-DESARROLLADORES.pdf` — 6 páginas A4 para mandar a constructoras/desarrolladores (portada, modelo, 4 paquetes tipo con precio, catálogo resumen, proceso en 5 pasos, contraportada con QR). Se regenera desde `kit.html` con Chrome headless (`--print-to-pdf`).
+- `mensajes.md` — guiones de prospección: WhatsApp (desarrollador, restaurantero, despacho), email formal, seguimiento, pitch de 30 s y manejo de objeciones.
+
 ## Investigación
 Ver carpeta `investigacion/`:
 - `mercado-mexico.md` — competidores, precios y huecos del mercado contract en México

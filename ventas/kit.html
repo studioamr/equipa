@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<title>EQUIPA — Kit Desarrolladores</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--negro:#121212;--gris:#6f6f6f;--linea:#e6e2da;--amarillo:#f8c84a;--oliva:#6b7350;--badge:#b8562e;--venta:#cf5c3f;--papel:#faf8f4}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{font-family:"Montserrat",sans-serif;color:var(--negro);font-size:11.5px;line-height:1.55}
+.pag{width:210mm;height:296mm;page-break-after:always;position:relative;overflow:hidden;background:#fff;padding:16mm 16mm 14mm}
+.logo{font-family:"Archivo",sans-serif;font-weight:900;letter-spacing:.08em}
+.logo em{font-style:normal;color:var(--badge)}
+.logo small{display:block;font-weight:600;font-size:.32em;letter-spacing:.42em;color:var(--negro);margin-top:4px}
+h2{font-size:23px;font-weight:700;margin-bottom:4px}
+.sub{color:var(--gris);font-size:12px;margin-bottom:22px}
+.mini{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--badge);font-weight:700;margin-bottom:8px}
+.pie{position:absolute;bottom:9mm;left:16mm;right:16mm;display:flex;justify-content:space-between;font-size:9px;color:var(--gris);border-top:1px solid var(--linea);padding-top:8px}
+
+/* Portada */
+.portada{background:var(--negro);color:#fff;display:flex;flex-direction:column}
+.portada .logo{font-size:54px;margin-top:10mm}
+.portada .logo small{color:#cfc9bd}
+.p-foto{margin:14mm -16mm 0;height:120mm;overflow:hidden;position:relative}
+.p-foto img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.p-cinta{position:absolute;bottom:0;left:0;right:0;background:var(--amarillo);color:var(--negro);font-weight:700;font-size:15px;padding:12px 16mm}
+.portada h1{font-size:31px;font-weight:700;line-height:1.15;margin-top:12mm;max-width:150mm}
+.portada h1 span{color:var(--amarillo)}
+.p-datos{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;color:#cfc9bd;font-size:11px}
+.p-datos b{color:#fff;font-size:14px}
+
+/* Bloques */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+.caja{border:1px solid var(--linea);padding:14px 16px;background:var(--papel)}
+.caja h3{font-size:13px;font-weight:700;margin-bottom:6px}
+.caja p{color:#444;font-size:10.8px}
+.num{font-family:"Archivo",sans-serif;font-weight:900;font-size:26px;color:var(--badge)}
+.check{list-style:none}
+.check li{padding:7px 0 7px 22px;border-bottom:1px solid var(--linea);position:relative;font-size:11.5px}
+.check li::before{content:"✓";position:absolute;left:0;color:var(--oliva);font-weight:700}
+.tabla{width:100%;border-collapse:collapse;font-size:10.8px}
+.tabla th{text-align:left;background:var(--negro);color:#fff;padding:8px 10px;font-weight:600}
+.tabla td{padding:7px 10px;border-bottom:1px solid var(--linea)}
+.tabla td:last-child,.tabla th:last-child{text-align:right}
+.precio{color:var(--venta);font-weight:700}
+
+/* Paquetes */
+.paq{border:1px solid var(--linea);margin-bottom:7mm;display:grid;grid-template-columns:58mm 1fr;overflow:hidden}
+.paq img{width:100%;height:100%;object-fit:cover;min-height:40mm}
+.paq-in{padding:12px 16px}
+.paq-in h3{font-size:14.5px;font-weight:700}
+.paq-in .para{font-size:10px;color:var(--gris);margin-bottom:6px}
+.paq-in ul{list-style:none;font-size:10.5px;color:#333;columns:2;column-gap:18px;margin:6px 0}
+.paq-in li{padding:2.5px 0;border-bottom:1px dashed var(--linea)}
+.paq-precio{display:flex;align-items:baseline;gap:10px;margin-top:7px}
+.paq-precio .p1{font-family:"Archivo",sans-serif;font-weight:900;font-size:19px;color:var(--badge)}
+.paq-precio .p2{font-size:10px;color:var(--gris)}
+
+/* Proceso */
+.paso{display:grid;grid-template-columns:16mm 1fr;gap:6mm;padding:11px 0;border-bottom:1px solid var(--linea);align-items:start}
+.paso .n{font-family:"Archivo",sans-serif;font-weight:900;font-size:21px;color:var(--badge)}
+.paso h3{font-size:13px;font-weight:700}
+.paso p{color:#444;font-size:11px}
+
+/* Contra */
+.contra{background:var(--negro);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.contra .logo{font-size:44px}
+.contra .logo small{color:#cfc9bd}
+.contra h2{margin-top:14mm;font-size:25px;max-width:140mm}
+.contra h2 span{color:var(--amarillo)}
+.wa{display:inline-block;background:#35b658;color:#fff;font-weight:700;font-size:16px;padding:14px 30px;border-radius:30px;margin-top:10mm}
+.contra .qr{margin-top:12mm;background:#fff;padding:10px}
+.contra .qr img{width:38mm;height:38mm;display:block}
+.contra .link{margin-top:6mm;color:#cfc9bd;font-size:12px}
+</style>
+</head>
+<body>
+
+<!-- ═══ 1 · PORTADA ═══ -->
+<div class="pag portada">
+  <div class="logo">EQUIP<em>A</em><small>EQUIPAMIENTO DE DESARROLLOS</small></div>
+  <h1>La partida de equipamiento de tu desarrollo, <span>resuelta en una sola entrega.</span></h1>
+  <div class="p-foto">
+    <img src="../img/ambiente.jpg" alt="">
+    <div class="p-cinta">Kit para constructoras y desarrolladores · Catálogo 01 · 2026–2027</div>
+  </div>
+  <div class="p-datos">
+    <div><b>André Macouzet</b><br>Dirección · EQUIPA</div>
+    <div style="text-align:right"><b>WhatsApp 443 201 1600</b><br>studioamr.github.io/equipa · Morelia, Michoacán</div>
+  </div>
+</div>
+
+<!-- ═══ 2 · EL PROBLEMA / EL MODELO ═══ -->
+<div class="pag">
+  <div class="mini">El problema</div>
+  <h2>Equipar un desarrollo hoy es perseguir a cinco proveedores.</h2>
+  <p class="sub">Locales comerciales, amenidades, oficinas de venta: cada área con un proveedor distinto, sin precios públicos, con 45 días de fabricación y sin fecha firme. La partida de mobiliario termina tarde, cara y fragmentada.</p>
+  <div class="dos" style="margin-bottom:9mm">
+    <div class="caja"><div class="num">45 días</div><h3>Fabricación nacional típica</h3><p>Los fabricantes locales cotizan "sobre pedido" sin fecha comprometida — y varios ni siquiera publican precios.</p></div>
+    <div class="caja"><div class="num">5+</div><h3>Proveedores por proyecto</h3><p>Sillas con uno, mesas con otro, lounge con un tercero: cinco cotizaciones, cinco fletes, cinco riesgos de retraso.</p></div>
+  </div>
+  <div class="mini">El modelo EQUIPA</div>
+  <h2>Importación directa, de la fábrica a tu obra.</h2>
+  <p class="sub">Curamos el mobiliario en los clústers de Foshan y Guangzhou (los mismos que surten a las marcas contract del mundo), consolidamos por contenedor con inspección de calidad certificada antes de embarcar, y entregamos en tu desarrollo con factura.</p>
+  <ul class="check">
+    <li><b>Precio público y cerrado</b> — lo que ves en el catálogo es el precio; presupuestas la partida sin pedir cotización a ciegas.</li>
+    <li><b>Una partida, un embarque, una entrega</b> — todo el equipamiento del proyecto en una sola operación logística.</li>
+    <li><b>Factura CFDI</b> en cada pedido — partida deducible y auditable.</li>
+    <li><b>Garantía escrita de 2 años en estructura</b>, uso comercial rudo.</li>
+    <li><b>Fecha de entrega comprometida por contrato</b> — tu apertura no se mueve por el mobiliario.</li>
+    <li><b>Inspección pre-embarque</b> (muestreo AQL) en origen: la calidad se revisa antes de subirse al barco, no al abrir la caja.</li>
+  </ul>
+  <div class="pie"><span>EQUIPA · Equipamiento de Desarrollos</span><span>WhatsApp 443 201 1600 · studioamr.github.io/equipa</span><span>2</span></div>
+</div>
+
+<!-- ═══ 3 · PAQUETES ═══ -->
+<div class="pag">
+  <div class="mini">Paquetes tipo</div>
+  <h2>Cuatro paquetes listos para presupuestar.</h2>
+  <p class="sub">Precios de preventa Catálogo 01 (+ IVA, flete según plaza). Todos se ajustan al plano y concepto de tu proyecto — estos son puntos de partida reales, no "desde".</p>
+
+  <div class="paq">
+    <img src="../img/sillas.jpg" alt="">
+    <div class="paq-in">
+      <h3>Cafetería · 20 plazas</h3>
+      <div class="para">Para locales comerciales en planta baja de torre o plaza</div>
+      <ul><li>20 sillas de comedor (madera)</li><li>6 mesas base metal Ø70</li><li>4 bancos de barra</li><li>1 sillón lounge bouclé</li></ul>
+      <div class="paq-precio"><span class="p1">$39,900</span><span class="p2">valor por pieza suelta: $42,490 · ahorras 6%</span></div>
+    </div>
+  </div>
+
+  <div class="paq">
+    <img src="../img/ambiente.jpg" alt="">
+    <div class="paq-in">
+      <h3>Restaurante · 60 plazas</h3>
+      <div class="para">Ancla gastronómica de plaza o desarrollo de usos mixtos</div>
+      <ul><li>48 sillas tapizadas contract</li><li>12 mesas madera 120×75</li><li>8 bancos de barra</li><li>2 sillones lounge piel</li></ul>
+      <div class="paq-precio"><span class="p1">$124,900</span><span class="p2">valor por pieza suelta: $131,300 · ahorras 5%</span></div>
+    </div>
+  </div>
+
+  <div class="paq">
+    <img src="../img/p/esc-nogal.jpg" alt="">
+    <div class="paq-in">
+      <h3>Oficina · 20 puestos</h3>
+      <div class="para">Oficinas de venta, showroom del desarrollo o corporativo propio</div>
+      <ul><li>20 escritorios 120×60</li><li>20 sillas operativas malla</li><li>2 sillones ejecutivos</li><li>1 mesa de juntas 6 personas</li><li>1 banca tándem recepción</li></ul>
+      <div class="paq-precio"><span class="p1">$119,900</span><span class="p2">valor por pieza suelta: $127,060 · ahorras 6%</span></div>
+    </div>
+  </div>
+
+  <div class="paq">
+    <img src="../img/p/sofa-beige.jpg" alt="">
+    <div class="paq-in">
+      <h3>Amenidades residenciales</h3>
+      <div class="para">Lobby + coworking + terraza de torre de departamentos</div>
+      <ul><li>2 sofás 3 plazas</li><li>2 sillones piel</li><li>2 mesas cubierta mármol</li><li>2 sets de terraza (mesa + 2 sillas)</li><li>1 banca tándem 4 plazas</li></ul>
+      <div class="paq-precio"><span class="p1">$44,900</span><span class="p2">valor por pieza suelta: $46,910 · ahorras 4%</span></div>
+    </div>
+  </div>
+  <div class="pie"><span>EQUIPA · Equipamiento de Desarrollos</span><span>WhatsApp 443 201 1600 · studioamr.github.io/equipa</span><span>3</span></div>
+</div>
+
+<!-- ═══ 4 · CATÁLOGO RESUMEN ═══ -->
+<div class="pag">
+  <div class="mini">Catálogo 01</div>
+  <h2>39 modelos, 9 categorías, precio público.</h2>
+  <p class="sub">Catálogo completo con fotos, fichas y cotizador en línea: <b>studioamr.github.io/equipa</b>. Rangos de preventa (+ IVA):</p>
+  <table class="tabla">
+    <tr><th>Categoría</th><th>Modelos</th><th>Ideal para</th><th>Precio preventa</th></tr>
+    <tr><td>Sillas de comedor y exterior</td><td>6</td><td>Restaurantes, cafeterías, terrazas</td><td class="precio">$890 – $1,990</td></tr>
+    <tr><td>Bancos de barra y cocina</td><td>5</td><td>Barras, islas, food halls</td><td class="precio">$1,090 – $1,890</td></tr>
+    <tr><td>Mesas para restaurante</td><td>4</td><td>Comedores comerciales</td><td class="precio">$1,990 – $5,990</td></tr>
+    <tr><td>Sillones y lounge</td><td>5</td><td>Esperas, esquinas lentas</td><td class="precio">$3,290 – $4,990</td></tr>
+    <tr><td>Sillones y sofás</td><td>3</td><td>Lobbies y amenidades</td><td class="precio">$7,990 – $9,990</td></tr>
+    <tr><td>Sillones ejecutivos</td><td>3</td><td>Dirección y gerencias</td><td class="precio">$3,490 – $5,990</td></tr>
+    <tr><td>Sillas operativas y de visita</td><td>2</td><td>Puestos de trabajo, juntas</td><td class="precio">$1,890 – $2,490</td></tr>
+    <tr><td>Escritorios y mesas de juntas</td><td>5</td><td>Oficinas y salas</td><td class="precio">$2,990 – $8,490</td></tr>
+    <tr><td>Bancas tándem y exterior</td><td>6</td><td>Recepciones, esperas, patios</td><td class="precio">$2,990 – $4,990</td></tr>
+  </table>
+  <div class="dos" style="margin-top:9mm">
+    <div class="caja"><h3>Especificación técnica</h3><p>Cada modelo con ficha: materiales, calibres, medidas y prueba de carga. Trabajamos con despachos de arquitectura e interiorismo con descuento de especificador.</p></div>
+    <div class="caja"><h3>Volumen real</h3><p>Un contenedor de 40' carga hasta 960 sillas. Pedidos de cadena o multi-plaza se surten con consistencia de lote y reposición garantizada.</p></div>
+  </div>
+  <div class="pie"><span>EQUIPA · Equipamiento de Desarrollos</span><span>WhatsApp 443 201 1600 · studioamr.github.io/equipa</span><span>4</span></div>
+</div>
+
+<!-- ═══ 5 · PROCESO ═══ -->
+<div class="pag">
+  <div class="mini">Cómo trabajamos</div>
+  <h2>Del plano a la apertura en 5 pasos.</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="paso"><div class="n">01</div><div><h3>Brief</h3><p>Nos compartes plano, concepto y fecha de apertura. Por WhatsApp o en visita a obra.</p></div></div>
+  <div class="paso"><div class="n">02</div><div><h3>Cotización en 48 horas</h3><p>Propuesta cerrada por partida: modelos, cantidades, precio final, flete a tu plaza y fecha de entrega comprometida.</p></div></div>
+  <div class="paso"><div class="n">03</div><div><h3>Apartado 30%</h3><p>Con el anticipo entra tu pedido al contenedor. Factura CFDI desde el primer pago.</p></div></div>
+  <div class="paso"><div class="n">04</div><div><h3>Producción e importación</h3><p>Fabricación en origen con inspección de calidad pre-embarque (muestreo AQL) y seguimiento del embarque puerto a puerto.</p></div></div>
+  <div class="paso"><div class="n">05</div><div><h3>Entrega en tu desarrollo</h3><p>Liquidación contra entrega. Mobiliario armado, en el área que corresponde, con garantía escrita de 2 años.</p></div></div>
+  <div class="caja" style="margin-top:9mm;background:#fdf6e3;border-color:#eedfa8">
+    <h3>Transparencia de preventa</h3>
+    <p>El Catálogo 01 se entrega a partir de <b>enero 2027</b> (primer contenedor). Sourcing en Foshan y Canton Fair en octubre 2026 — los proyectos que aparten en preventa aseguran el mejor precio y prioridad de entrega. Después de esa fecha, entregas de stock en 5–10 días.</p>
+  </div>
+  <div class="pie"><span>EQUIPA · Equipamiento de Desarrollos</span><span>WhatsApp 443 201 1600 · studioamr.github.io/equipa</span><span>5</span></div>
+</div>
+
+<!-- ═══ 6 · CONTRA ═══ -->
+<div class="pag contra">
+  <div class="logo">EQUIP<em>A</em><small>EQUIPAMIENTO DE DESARROLLOS</small></div>
+  <h2>Mándanos el plano de tu proyecto y en 48 horas tienes <span>la partida de mobiliario resuelta.</span></h2>
+  <a class="wa" href="https://wa.me/5214432011600">WhatsApp 443 201 1600</a>
+  <div class="qr"><img src="qr-catalogo.png" alt="QR catálogo"></div>
+  <div class="link">Catálogo y cotizador: <b>studioamr.github.io/equipa</b><br>André Macouzet · Morelia, Michoacán · atendemos todo México</div>
+</div>
+
+</body>
+</html>
