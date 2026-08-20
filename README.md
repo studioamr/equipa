@@ -1,9 +1,9 @@
-# CANTO — Mobiliario contract
+# EQUIPA — Equipamiento de desarrollos (antes CANTO)
 
 Landing B2B de mobiliario comercial (sillas, mesas, bancos de barra, lounge) importado directo de fábrica en China, para restaurantes, cafeterías, bares y oficinas en México.
 
-- **Vivo:** https://studioamr.github.io/canto
-- **Local:** puerto 4346 (`python3 -m http.server 4346 -d canto` desde ~/claude)
+- **Vivo:** https://studioamr.github.io/equipa
+- **Local:** puerto 4346 (`python3 -m http.server 4346 -d equipa` desde ~/claude)
 - **Referencia de concepto:** mobiliarioenmexico.com.mx (contract B2B, precios visibles, cierre por WhatsApp)
 
 ## Estructura
@@ -23,7 +23,7 @@ Ver carpeta `investigacion/`:
 - `sourcing-china.md` — playbook del viaje: Foshan, ferias, MOQ, logística y aranceles
 
 ## Pendientes
-- Validar nombre **CANTO** en IMPI (como siempre)
+- Validar nombre **EQUIPA** en IMPI — clases 20 y 35, búsqueda fonética en Marcanet
 - Fechas exactas de Canton Fair / CIFF según investigación
 - Precios objetivo por colección cuando haya números FOB reales
 - Fotos reales de fábrica y muestras después del viaje (regla: la página crece con hechos, no promesas)
